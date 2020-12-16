@@ -15,8 +15,6 @@ public class PanButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Entered selecteable");
-
         if (gameObject.CompareTag("LeftHover"))
         {
             panner.SetPanLeft(true);
@@ -29,13 +27,13 @@ public class PanButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerExit(PointerEventData eventData)
     {
-            if (gameObject.CompareTag("LeftHover"))
-            {
-                panner.SetPanLeft(false);
-            }
-            else if (gameObject.CompareTag("RightHover"))
-            {
-                panner.SetPanRight(false);
-            }
+        if (gameObject.CompareTag("LeftHover"))
+        {
+            panner.SetPanLeft(false);
+        }
+        else if (gameObject.CompareTag("RightHover"))
+        {
+            panner.SetPanRight(false);
+        }
     }
 }
