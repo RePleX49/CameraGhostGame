@@ -89,4 +89,11 @@ public class ObjectScript : MonoBehaviour
 			}
 		}
 	}
+
+	// Getters
+
+	public Vector3 GetPosition()
+	{
+		return transform.position;
+	}
 }

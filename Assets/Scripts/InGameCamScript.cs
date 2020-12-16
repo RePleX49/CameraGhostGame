@@ -49,21 +49,6 @@ public class InGameCamScript : MonoBehaviour
             transform.position = mousePosWorld;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                int ghostCount = 0;
-                GhostScript[] ghosts = FindObjectsOfType<GhostScript>();
-
-                foreach(GhostScript ghost in ghosts)
-                {
-                    if(ghost.gameObject.GetComponent<SpriteRenderer>().isVisible)
-                    {
-                        Debug.Log("Captured Ghost");
-                        ghostCount++;
-                        GameManager.me.money += 100;
-                    }
-
-                    //TODO implement formula to calculate total money
-                }
-
                 GameManager.me.filmNum--;
                 photo.SetActive(true);
 
@@ -82,6 +67,24 @@ public class InGameCamScript : MonoBehaviour
 			{            
                 photo.SetActive(false);
                 camAim.SetActive(false);
+
+                int ghostCount = 0;
+                GhostScript[] ghosts = FindObjectsOfType<GhostScript>();
+
+                foreach (GhostScript ghost in ghosts)
+                {
+                    if (ghost.gameObject.GetComponent<SpriteRenderer>().isVisible)
+                    {
+                        Debug.Log("Captured Ghost");
+                        ghostCount++;
+                        GameManager.me.money += 100;
+
+                        ghost.Captured();
+                    }
+
+                    //TODO implement formula to calculate total money
+                }
+
                 state = idle;
 			}
 		}
