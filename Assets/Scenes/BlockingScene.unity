@@ -6714,6 +6714,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1785084900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5757406101998815754, guid: 3b2bfa1114272c44d82008a950f0045f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1529336081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1785084904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785084900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627241f470a9be242a04d5a031e936cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spin: 1
 --- !u!1001 &1789418562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7165,7 +7184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1804574473461393188, guid: 2c751e8794b0e8c40ba311f69010fd97,
+  m_Sprite: {fileID: 2379361226945128740, guid: 2c751e8794b0e8c40ba311f69010fd97,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2627451}
   m_FlipX: 0
