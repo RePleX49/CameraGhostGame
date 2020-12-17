@@ -35,10 +35,12 @@ public class GhostManager : MonoBehaviour
                 if(!bGhostSpawned)
                 {
                     // need to clamp ghost spawn count to hauntObject count
-                    int ghostsToSpawn = (100 / GameManager.me.mentalHealth);
+                    int ghostsToSpawn = (int)(10.0f * GetGhostCount(1.0f - (GameManager.me.mentalHealth / 100.0f)));
+
+                    ghostsToSpawn = Mathf.Min(ghostsToSpawn, hauntObjects.Count);
 
                     //TODO use a for loop to spawn ghosts
-                    for(int i = 0; i < 3; i++)
+                    for(int i = 0; i < ghostsToSpawn; i++)
                     {
                         GameObject ghost = Instantiate(ghostPrefab);
                         ghost.GetComponent<GhostScript>().Initialize(this, GetHaunt());
@@ -58,6 +60,12 @@ public class GhostManager : MonoBehaviour
         }
 
         Debug.Log("Current time " + timer);
+    }
+
+    float GetGhostCount(float time)
+    {
+        float sqt = time * time;
+        return 0.1f + (sqt / (2.0f * (sqt - time) + 1.0f));
     }
 
     void ClearAllGhosts()

@@ -43,15 +43,6 @@ public class GhostScript : MonoBehaviour
         }
     }
 
-	private void Update()
-	{
-		if (GameManager.me.state == GameManager.me.game)
-		{
-			// showInterval = initialInterval * GameManager.me.mentalHealth / 100f; // relationship determines how long it appears, mental health determines how frequently it appears
-			// showDuration = initialDuration + GameManager.me.gR / 33.33f;
-		}
-	}
-
 	void OnBecameInvisible()
     {
 		InGameCamScript.me.ghostCaptured = false;
