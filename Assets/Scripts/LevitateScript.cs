@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToastScript : MonoBehaviour
+public class LevitateScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
