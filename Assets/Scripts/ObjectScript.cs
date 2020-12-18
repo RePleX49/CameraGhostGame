@@ -7,12 +7,26 @@ public class ObjectScript : MonoBehaviour
     public List<GameObject> objectsToChange;
 	public bool lamp;
 	public bool door;
+
+    //Added by Raymond 12-17-20
+    public bool lid;
+
     public bool effected = false;
 	private float timer;
 	private float lampFlashIntervalMin;
 	private float lampFlashIntervalMax;
 	private float doorMoveIntervalMin;
 	private float doorMoveIntervalMax;
+    
+    //Added by Raymond 12-17-20 
+    private float lidFlapMin;
+    private float lidFlapMax;
+    private float flapSpd;
+    private float actualFlapSpd;
+    private float lidMoveIntervalMin;
+    private float lidMoveIntervalMax;
+
+
 	private bool clockWise = true;
 	private float spinSpd;
 	private float actualSpinSpd;
@@ -23,15 +37,27 @@ public class ObjectScript : MonoBehaviour
 		lampFlashIntervalMax = 1f;
 		doorMoveIntervalMin = 3f;
 		doorMoveIntervalMin = 1f;
+
+        lidMoveIntervalMin = 3f;
+        lidMoveIntervalMax = 1f;
+
+
 		spinSpd = 500f;
+        flapSpd = 500f;
+
 		if (lamp)
 		{
 			timer = Random.Range(lampFlashIntervalMin, lampFlashIntervalMax);
 		}
-		else
+		else if (door)
 		{
 			timer = Random.Range(doorMoveIntervalMin, doorMoveIntervalMax);
 		}
+
+        else if (lid)
+        {
+            timer = Random.Range(lidMoveIntervalMin, lidMoveIntervalMax);
+        }
 	}
 
 	private void Update()
@@ -87,6 +113,39 @@ public class ObjectScript : MonoBehaviour
 					}
 				}
 			}
+            //Added by Raymond 12-17-20
+            else if (lid)
+            {
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                    objectsToChange[0].transform.Rotate(0, 0, actualFlapSpd * Time.deltaTime);
+                }
+                else
+                {
+                    timer = Random.Range(lidMoveIntervalMin, lidMoveIntervalMax);
+                    if(objectsToChange[0].GetComponent<FlapScript>().flap)// flap
+                    {
+                        if (clockWise)
+                        {
+                            actualSpinSpd = -flapSpd;
+                            clockWise = false;
+                        }
+                        else
+                        {
+                            actualFlapSpd = flapSpd;
+                            clockWise = true;
+                        }
+
+
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            }
 		}
 	}
 
