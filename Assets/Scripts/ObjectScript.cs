@@ -80,8 +80,7 @@ public class ObjectScript : MonoBehaviour
 					else
 					{
 						objectsToChange[0].SetActive(true);
-					}
-					
+					}	
 				}
 			}
 			else if (door)
@@ -136,8 +135,6 @@ public class ObjectScript : MonoBehaviour
                             actualFlapSpd = flapSpd;
                             clockWise = true;
                         }
-
-
                     }
                     else
                     {

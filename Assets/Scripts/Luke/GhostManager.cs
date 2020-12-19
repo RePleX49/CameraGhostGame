@@ -45,7 +45,7 @@ public class GhostManager : MonoBehaviour
                         GameObject ghost = Instantiate(ghostPrefab);
                         ghost.GetComponent<GhostScript>().Initialize(this, GetHaunt());
                         activeGhosts.Add(ghost);
-                    }                 
+                    }
 
                     bGhostSpawned = true;
                     timer = ghostInterval;

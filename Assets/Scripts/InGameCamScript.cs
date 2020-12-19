@@ -77,13 +77,13 @@ public class InGameCamScript : MonoBehaviour
                     {
                         Debug.Log("Captured Ghost");
                         ghostCount++;
-                        GameManager.me.money += 100;
-
                         ghost.Captured();
                     }
-
-                    //TODO implement formula to calculate total money
                 }
+
+                float totalMoney = 20 * (Mathf.Pow(2.5f, ghostCount - 1));
+
+                GameManager.me.money += (int)totalMoney;
 
                 state = idle;
 			}

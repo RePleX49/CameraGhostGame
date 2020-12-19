@@ -80,16 +80,16 @@ public class GameManager : MonoBehaviour
                 pHND_timer = pHNaturalDescreaseInterval;
             }
 
-            //if (mHNI_timer > 0)
-            //{
-            //    mHNI_timer -= Time.deltaTime;
-            //}
-            //else
-            //{
-            //    mentalHealth++;
-            //    mHNI_timer = mHNaturalIncreaseInterval;
-            //}
-            
+            if (mHNI_timer > 0)
+            {
+                mHNI_timer -= Time.deltaTime;
+            }
+            else
+            {
+                mentalHealth--;
+                mHNI_timer = mHNaturalIncreaseInterval;
+            }
+
             if (mentalHealth <= 0)
 			{
                 state = goCrazy;
