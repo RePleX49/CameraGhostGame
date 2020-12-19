@@ -86,10 +86,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                mentalHealth++;
+                mentalHealth--;
                 mHNI_timer = mHNaturalIncreaseInterval;
             }
-            
+
             if (mentalHealth <= 0)
 			{
                 state = goCrazy;
