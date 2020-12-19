@@ -149,6 +149,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!1001 &6084924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,6 +251,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 1
+  stove: 0
 --- !u!1001 &28155316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +713,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!1001 &167613762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2016,6 +2022,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!1 &549578391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 52507509b4b69944382ec048ace512fd,
@@ -2042,6 +2050,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!4 &556490055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e103411c5c3a0ca44aa8e7d605295dd5,
@@ -2829,6 +2839,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 1
 --- !u!1001 &766383183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3005,6 +3017,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!114 &812914167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,6 +3361,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!1001 &900231563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5503,6 +5519,8 @@ MonoBehaviour:
   levitate: 0
   effected: 0
   levitateHght: 0
+  toilet: 0
+  stove: 0
 --- !u!1 &1348435870
 GameObject:
   m_ObjectHideFlags: 0
