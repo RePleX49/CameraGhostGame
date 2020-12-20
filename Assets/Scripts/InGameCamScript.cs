@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class InGameCamScript : MonoBehaviour
 {
     public static InGameCamScript me;
@@ -20,9 +21,11 @@ public class InGameCamScript : MonoBehaviour
     float initialCamHeight = 0.0f;
     public float screenDepthOffset = 10.0f;
     float initialMouseZ;
+    AudioSource audioSource;
 
 	private void Start()
 	{
+        audioSource = GetComponent<AudioSource>();
         me = this;
         state = idle;
         initialCamHeight = transform.position.y;
@@ -49,6 +52,11 @@ public class InGameCamScript : MonoBehaviour
             transform.position = mousePosWorld;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                if(audioSource)
+                {
+                    audioSource.Play();
+                }
+
                 GameManager.me.filmNum--;
                 photo.SetActive(true);
 

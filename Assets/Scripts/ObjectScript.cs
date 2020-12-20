@@ -7,6 +7,7 @@ public class ObjectScript : MonoBehaviour
     public List<GameObject> objectsToChange;
 	public bool lamp;
 	public bool door;
+    public bool shower;
 
     //Added by Raymond 12-17-20
     public bool lid;
@@ -36,8 +37,14 @@ public class ObjectScript : MonoBehaviour
 	private float spinSpd;
 	private float actualSpinSpd;
 
+    bool audioPlaying = false;
+
+    ObjectAudio audioScript;
+
 	private void Start()
 	{
+        audioScript = GetComponent<ObjectAudio>();
+
 		lampFlashIntervalMin = 0.3f;
 		lampFlashIntervalMax = 1f;
 		doorMoveIntervalMin = 3f;
@@ -83,16 +90,24 @@ public class ObjectScript : MonoBehaviour
                     if (objectsToChange[0].activeSelf)
                     {
                         objectsToChange[0].SetActive(false);
+                        audioScript.PlayStart();
                     }
                     else
                     {
                         objectsToChange[0].SetActive(true);
+                        audioScript.PlayEnd();
                     }
-
                 }
             }
             else if (door)
             {
+                if(!audioPlaying)
+                {
+                    audioScript.PlayStart();
+                    audioScript.PlayConstant();
+                    audioPlaying = true;
+                }
+
                 if (timer > 0)
                 {
                     timer -= Time.deltaTime;
@@ -112,17 +127,20 @@ public class ObjectScript : MonoBehaviour
                         {
                             actualSpinSpd = spinSpd;
                             clockWise = true;
-                        }
-                    }
-                    else // open and close
-                    {
-
+                        }                       
                     }
                 }
             }
             //Added by Raymond 12-17-20
             else if (lid)
             {
+                if(!audioPlaying)
+                {
+                    audioScript.PlayStart();
+                    audioScript.PlayConstant();
+                    audioPlaying = true;
+                }
+
                 if (stove == true)
                 {
                     if (timer > 0)
@@ -144,15 +162,8 @@ public class ObjectScript : MonoBehaviour
                             {
                                 actualFlapSpd = flapSpd;
                                 clockWise = true;
-                            }
-
-
+                            }                          
                         }
-                        else
-                        {
-
-                        }
-
                     }
                 }
 
@@ -178,33 +189,35 @@ public class ObjectScript : MonoBehaviour
                                 actualFlapSpd = flapSpd;
                                 clockWise = true;
                             }
-
-
                         }
-                        else
-                        {
-
-                        }
-
                     }
                 }
 
             }
             else if (levitate)
             {
+                if(!audioPlaying)
+                {
+                    audioScript.PlayStart();
+                    audioScript.PlayConstant();
+                    audioPlaying = true;
+                }
+
                 //objectsToChange[0].SetActive(true);
                 foreach (GameObject floaty in objectsToChange)
                 {
                     floaty.SetActive(true);
                 }
 
+                if(shower)
+                {
+                    return;
+                }
+
                 Debug.Log("toasty!");
                 float newY = initY + (levitateHght * Mathf.Sin(Time.time));
                 Vector3 newPosition = new Vector3(transform.position.x, newY, transform.position.z);
                 transform.position = newPosition;
-
-
-
             }
 		}
         else
@@ -216,6 +229,9 @@ public class ObjectScript : MonoBehaviour
                     floaty.SetActive(false);
                 }
             }
+
+            audioScript.StopConstant();
+            audioPlaying = false;
         }
 	}
 
