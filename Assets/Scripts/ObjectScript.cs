@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectScript : MonoBehaviour
 {
+    public Transform ghostSocket;
     public List<GameObject> objectsToChange;
 	public bool lamp;
 	public bool door;
@@ -230,7 +231,11 @@ public class ObjectScript : MonoBehaviour
                 }
             }
 
-            audioScript.StopConstant();
+            if(audioScript)
+            {
+                audioScript.StopConstant();
+            }
+            
             audioPlaying = false;
         }
 	}
@@ -239,6 +244,6 @@ public class ObjectScript : MonoBehaviour
 
 	public Vector3 GetPosition()
 	{
-		return transform.position;
+		return ghostSocket.position;
 	}
 }

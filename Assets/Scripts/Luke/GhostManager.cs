@@ -58,8 +58,6 @@ public class GhostManager : MonoBehaviour
                 }
             }        
         }
-
-        Debug.Log("Current time " + timer);
     }
 
     float GetGhostCount(float time)
@@ -68,15 +66,16 @@ public class GhostManager : MonoBehaviour
         return 0.1f + (sqt / (2.0f * (sqt - time) + 1.0f));
     }
 
-    void ClearAllGhosts()
+    public void ClearAllGhosts()
     {
         foreach(GameObject ghost in activeGhosts)
         {
             ghost.GetComponent<GhostScript>().ResetHaunt();
             hauntObjects.Add(ghost.GetComponent<GhostScript>().GetHaunt());
-            activeGhosts.Remove(ghost);
             Destroy(ghost);
         }
+
+        activeGhosts.Clear();
     }
 
     public void ClearGhost(GameObject target, ObjectScript targetHaunt)

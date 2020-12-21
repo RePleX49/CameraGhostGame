@@ -15,9 +15,24 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        StartCoroutine(InsanityCheck());
     }
-    
+
+    private void Update()
+    {
+        if(GameManager.me.state == GameManager.me.game)
+        {
+            float mentalHealth = _gameManager.mentalHealth;
+
+            if (mentalHealth > 0)
+            {
+                var percent = 1 - (mentalHealth / 100);
+                var range = maxVolume - minVolume;
+
+                breathingSource.volume = minVolume + (percent * range);
+            }
+        }
+    }
+
     private IEnumerator InsanityCheck()
     {
         while (enabled)

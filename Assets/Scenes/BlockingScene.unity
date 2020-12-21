@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 2088171593}
   objectsToChange:
   - {fileID: 569791318}
   lamp: 1
@@ -545,6 +546,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269681524}
     m_Modifications:
+    - target: {fileID: 7118668120156142462, guid: 0f3703a5d0ac5d0468e14597f22a3300,
+        type: 3}
+      propertyPath: ghostSocket
+      value: 
+      objectReference: {fileID: 528566347}
     - target: {fileID: 7295883680334267065, guid: 0f3703a5d0ac5d0468e14597f22a3300,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -689,6 +695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5304969350141727583, guid: 3a884a58e60124310a730c7e7d31314f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a884a58e60124310a730c7e7d31314f, type: 3}
 --- !u!1 &145492766
@@ -819,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 671984582}
   objectsToChange:
   - {fileID: 385868369}
   lamp: 0
@@ -1733,6 +1745,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 332720918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &379942029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379942030}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &379942030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379942029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.25, y: 1.83, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1543416651}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &385868369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1786,7 @@ GameObject:
   - component: {fileID: 385868370}
   - component: {fileID: 385868371}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1957,6 +1999,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &463023636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463023637}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463023637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463023636}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 14.599879, y: 7.35, z: 3.6491256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 873592991}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &496326565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2032,6 +2104,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 496326565}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &528566346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528566347}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &528566347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528566346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.91, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2081903143}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535943150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4aba4a9df0d984d44bc5e620fb516be4,
@@ -2050,6 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 1822379736}
   objectsToChange:
   - {fileID: 1081193485}
   lamp: 0
@@ -2312,6 +2415,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 81985038449051373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &588181434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588181435}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588181435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588181434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 784701826}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622114449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 706387151}
   objectsToChange:
   - {fileID: 1125238076}
   lamp: 0
@@ -2708,6 +2842,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 204782417}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &671984581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671984582}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671984582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671984581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.07, y: 4.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 636778243}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,6 +2964,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 60.311005, y: -40.458, z: -12.675}
+--- !u!1 &706387150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706387151}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &706387151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706387150}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.2, y: 10.77, z: 12.2}
+  m_LocalScale: {x: 1.2906, y: 1.2906, z: 1.2906}
+  m_Children: []
+  m_Father: {fileID: 2068109334}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &736109422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88dab9b9441c3694080dfb4152977990,
@@ -2818,6 +3012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 2023075424}
   objectsToChange:
   - {fileID: 904551458}
   lamp: 0
@@ -3032,6 +3227,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1269681524}
     m_Modifications:
+    - target: {fileID: 6097436964462694521, guid: 71fc40d649599f44289506043fcdd9af,
+        type: 3}
+      propertyPath: ghostSocket
+      value: 
+      objectReference: {fileID: 588181435}
     - target: {fileID: 6097436965907092038, guid: 71fc40d649599f44289506043fcdd9af,
         type: 3}
       propertyPath: m_Name
@@ -3118,6 +3318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 836666667}
   objectsToChange:
   - {fileID: 812914165}
   lamp: 0
@@ -3257,6 +3458,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &836666666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836666667}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836666667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836666666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.07, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417400576}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858394971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 81985039269435318, guid: 192435f588a89574e8c9340d739e8f89,
@@ -3506,6 +3737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 1911467930}
   objectsToChange:
   - {fileID: 1234935371}
   lamp: 1
@@ -3881,7 +4113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &960861153
 PrefabInstance:
@@ -4449,6 +4681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 463023637}
   objectsToChange:
   - {fileID: 1535040367}
   lamp: 0
@@ -5598,6 +5831,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6084924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1335143812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335143813}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335143813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335143812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.68, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1667868891}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341935349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a863dc5bc7d0624eb1fb30abcbb9d98,
@@ -5616,6 +5879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 1335143813}
   objectsToChange:
   - {fileID: 1396166042}
   lamp: 0
@@ -6787,6 +7051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7fdd683105a8844a096f2251edabfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostSocket: {fileID: 379942030}
   objectsToChange:
   - {fileID: 1896839570}
   lamp: 0
@@ -7333,6 +7598,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1822379735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822379736}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822379736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822379735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.12, y: 2.88, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 74381811}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1843784520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7554,6 +7849,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 81985038449051373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1911467929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911467930}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1911467930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911467929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 5.86, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1534086578}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1917470738 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 81985038218776319, guid: 192435f588a89574e8c9340d739e8f89,
@@ -7901,6 +8226,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2023075423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023075424}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2023075424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023075423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.94, y: 1.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1987392277}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025806537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 81985038305483812, guid: 192435f588a89574e8c9340d739e8f89,
@@ -8074,6 +8429,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 131806015}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2081903143 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7118668120156142463, guid: 0f3703a5d0ac5d0468e14597f22a3300,
+    type: 3}
+  m_PrefabInstance: {fileID: 131806015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &2081903144
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8189,6 +8550,36 @@ MonoBehaviour:
   constantVolume: 1
   endClip: {fileID: 0}
   endVolume: 1
+--- !u!1 &2088171592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088171593}
+  m_Layer: 0
+  m_Name: GhostSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2088171593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088171592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 3.33, z: -1.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 868886858}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125057204
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,7 +36,7 @@ public class GhostScript : MonoBehaviour
 
         if (currentHaunt)
         {
-            transform.position = currentHaunt.transform.position;
+            transform.position = currentHaunt.GetPosition();
 
             // set haunt to be effected
             currentHaunt.effected = true;
