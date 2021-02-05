@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,12 +45,19 @@ public class GameManager : MonoBehaviour
 
     public GameObject crazyText;
     public GameObject deadText;
-    
+
+    GhostManager ghostManager;
+
+    void Awake()
+    {
+        ghostManager = FindObjectOfType<GhostManager>();
+    }
+
     void Start()
     {
         me = this;
         pHND_timer = pHNaturalDescreaseInterval;
-        mHNI_timer = mHNaturalIncreaseInterval;
+        mHNI_timer = mHNaturalIncreaseInterval;       
     }
 
     void Update()
@@ -86,26 +94,37 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                mentalHealth++;
+                mentalHealth--;
                 mHNI_timer = mHNaturalIncreaseInterval;
             }
-            
+
             if (mentalHealth <= 0)
 			{
                 state = goCrazy;
-			}
+                ghostManager.ClearAllGhosts();
+            }
             if (physicalHealth <= 0)
 			{
                 state = die;
-			}
+                ghostManager.ClearAllGhosts();
+            }
         }
         else if (state == goCrazy)
 		{
             crazyText.SetActive(true);
+            
 		}
         else if (state == die)
 		{
             deadText.SetActive(true);
 		}
+
+        if(state != game)
+        {
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 }

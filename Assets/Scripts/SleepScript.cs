@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SleepScript : MonoBehaviour
+public class SleepScript : MonoBehaviour , IPointerDownHandler
 {
-	private void OnMouseDown()
+	public AudioSource audioSource;
+	public int healthCost = 10;
+	public int mentalRegen = 20;
+
+	public void OnPointerDown(PointerEventData eventData)
 	{
 		if (GameManager.me.state == GameManager.me.game)
 		{
-			GameManager.me.mentalHealth += GameManager.me.mHIncreaseAmount;
-			GameManager.me.physicalHealth -= GameManager.me.pHDecreaseAmount;
+			if(audioSource)
+			{
+				audioSource.Play();
+			}
+			
+			GameManager.me.mentalHealth += mentalRegen;
+			GameManager.me.physicalHealth -= healthCost;
 			GameManager.me.gR += GameManager.me.grIncreaseAmount;
 		}
 	}
