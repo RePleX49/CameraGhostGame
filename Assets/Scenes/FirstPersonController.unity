@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 612282690}
   - component: {fileID: 612282689}
   - component: {fileID: 612282691}
+  - component: {fileID: 612282692}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Untagged
@@ -456,15 +457,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685a6658acccf0841a94c7388395cf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 612282689}
   speed: 12
-  gravity: 9.81
+  gravity: -9.81
   jumpHeight: 3
-  groundCheck: {fileID: 2077626396}
   groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 2048
+--- !u!114 &612282692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612282688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df649fcc90ccd6c489b73da5917bda64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMaterial: {fileID: 0}
+  sourceMaterial: {fileID: 0}
+  renderDepthResolution: 16
 --- !u!1 &807003622
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930485702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.035126623, y: 1.83, z: -0.83202803}
+  m_LocalPosition: {x: 0.035126623, y: 1.2, z: -0.83202803}
   m_LocalScale: {x: 2.7020454, y: 2.7020454, z: 2.7020454}
   m_Children: []
   m_Father: {fileID: 612282690}
@@ -605,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa74ca71862ea84d8b6ba82b903a7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 1
   playerBody: {fileID: 612282690}
 --- !u!81 &930485705
 AudioListener:
