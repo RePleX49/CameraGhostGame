@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 
     float lookUpRotation = 0.0f;
 
+    bool isDisabled = false;
+
     void Awake()
     {
         currentCamera = defaultCamera;
@@ -31,6 +33,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDisabled)
+            return;
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -40,5 +45,15 @@ public class CameraController : MonoBehaviour
         defaultCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         ghostCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         Player.Rotate(Vector3.up * mouseX);
+    }
+
+    public void DisableCamera()
+    {
+        isDisabled = true;
+    }
+
+    public void EnableCamera()
+    {
+        isDisabled = false;
     }
 }

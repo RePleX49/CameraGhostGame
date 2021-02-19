@@ -54,8 +54,11 @@ Shader "Unlit/DimensionCamera"
                 //divide out z component which is equivalent to o.vertex.w
                 float2 uv = i.screen_uv.xy / i.screen_uv.z;
 
-                //one minus flips image back upright 
-                uv.y = 1 - uv.y;
+                //one minus flips image back upright
+                #if UNITY_UV_STARTS_AT_TOP
+                    uv.y = 1 - uv.y;
+                #endif
+
                 return tex2D(_MainTex, uv);
             }
             ENDCG

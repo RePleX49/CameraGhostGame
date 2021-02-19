@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScreenshotScript : MonoBehaviour
 {
     RenderTexture snapshotTex;
+    Texture2D snapshotTexture2D;
     Material targetMaterial;
     public int renderDepthResolution = 16;
     public Image snapshotImage;
@@ -13,12 +14,16 @@ public class ScreenshotScript : MonoBehaviour
 
     public float exposureDuration = 1.0f;
 
+    bool isTakingPicture;
+
     // Start is called before the first frame update
     void Start()
     {
         snapshotTex = new RenderTexture(Screen.width, Screen.height, renderDepthResolution);
+        snapshotTexture2D = new Texture2D(Screen.width, Screen.height);
         targetMaterial = new Material(Shader.Find("Unlit/GreyScale"));
         snapshotImage.material = targetMaterial;
+        isTakingPicture = false;
 
         DisableImages();
     }
@@ -34,9 +39,15 @@ public class ScreenshotScript : MonoBehaviour
 
     void TakeSnapshot()
     {
+        if (isTakingPicture)
+            return;
+
         Camera altCamera = GameServices.cameraController.altCamera;
-        Graphics.Blit(altCamera.targetTexture, snapshotTex);
-        targetMaterial.mainTexture = snapshotTex;
+        //Graphics.Blit(altCamera.targetTexture, snapshotTex);
+        RenderTexture.active = altCamera.targetTexture;
+        snapshotTexture2D.ReadPixels(new Rect(0, 0, altCamera.targetTexture.width, altCamera.targetTexture.height), 0, 0);
+        snapshotTexture2D.Apply();
+        targetMaterial.mainTexture = (Texture)snapshotTexture2D;
 
         exposureImage.enabled = true;
         snapshotImage.enabled = true;
@@ -47,6 +58,8 @@ public class ScreenshotScript : MonoBehaviour
     IEnumerator PlaySnapshotEffect()
     {
         float elapsedTime = 0.0f;
+        isTakingPicture = true;
+        GameServices.cameraController.DisableCamera();
 
         while(elapsedTime < exposureDuration)
         {
@@ -69,6 +82,8 @@ public class ScreenshotScript : MonoBehaviour
         }
 
         DisableImages();
+        isTakingPicture = false;
+        GameServices.cameraController.EnableCamera();
 
         yield return null;
     }
