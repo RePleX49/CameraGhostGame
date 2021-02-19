@@ -7,7 +7,7 @@ public class GhostManager : MonoBehaviour
     public List<ObjectScript> hauntObjects;
     public GameObject ghostPrefab;
 
-    public float ghostInterval = 10.0f;
+    public float ghostInterval = 10.0f; 
 
     float timer;
     bool bGhostSpawned = false;
