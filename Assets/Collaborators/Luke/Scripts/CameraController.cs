@@ -66,7 +66,9 @@ public class CameraController : MonoBehaviour
         altCamera.targetTexture = currentCamera.targetTexture;
         currentCamera.targetTexture = null;
         currentCamera.tag = "MainCamera";
-        //cameraObject.layer = currentCamera.cullingMask;
+
+        // Match collision layer to current camera layer
+        Player.gameObject.layer = currentCamera.gameObject.layer;
     }
 
     public void DisableCamera()
