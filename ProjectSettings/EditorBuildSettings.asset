@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BlockingScene.unity
-    guid: 319f5b345d1edb54281e547b01094a30
+    path: Assets/Collaborators/Luke/Scenes/EntranceBlockout_Normal.unity
+    guid: 3c06258e583bd104f8de6ee481601cd5
+  - enabled: 1
+    path: Assets/Collaborators/Luke/Scenes/EntranceBlockout_Alternate.unity
+    guid: c4bb109b5707a904a850c59dd81880e9
   m_configObjects: {}
