@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public Camera altCamera { get; private set; }
     public Camera defaultCamera;
     public Camera ghostCamera;
+    public GameObject cameraObject;
     public float mouseSensitivity = 100.0f;
     public float maxLookUp = 90.0f;
     public float minLookDown = -90.0f;
@@ -36,6 +37,11 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            SwapCameras();
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -44,7 +50,23 @@ public class CameraController : MonoBehaviour
 
         defaultCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         ghostCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        cameraObject.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         Player.Rotate(Vector3.up * mouseX);
+    }
+
+    void SwapCameras()
+    {
+        // Swap references for current and altCamera
+        Camera temp = currentCamera;
+        currentCamera = altCamera;
+        altCamera = temp;
+
+        // Swap render texture
+        altCamera.tag = "Untagged";
+        altCamera.targetTexture = currentCamera.targetTexture;
+        currentCamera.targetTexture = null;
+        currentCamera.tag = "MainCamera";
+        //cameraObject.layer = currentCamera.cullingMask;
     }
 
     public void DisableCamera()
