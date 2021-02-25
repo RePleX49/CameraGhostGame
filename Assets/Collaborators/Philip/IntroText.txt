@@ -1,0 +1,5 @@
+Helloooooooooooooooooooo. 
+This is a text file that is being read.
+Whenever you want a text-cutscene to happen, just make a new text file.
+And add it to the textbox manager script. 
+Goodbyeeeeeeeeeeeeeeeeeeeee.
