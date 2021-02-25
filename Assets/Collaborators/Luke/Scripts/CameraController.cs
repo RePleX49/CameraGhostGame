@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     public Camera defaultCamera;
     public Camera ghostCamera;
     public GameObject cameraObject;
+    public GameObject cameraMesh;
+    public float verticalEquipOffset;
+    float initialEquipY;
     public float mouseSensitivity = 100.0f;
     public float maxLookUp = 90.0f;
     public float minLookDown = -90.0f;
@@ -17,11 +20,12 @@ public class CameraController : MonoBehaviour
     float lookUpRotation = 0.0f;
 
     bool isDisabled = false;
+    bool isEquipped = true;
 
     void Awake()
     {
         currentCamera = defaultCamera;
-        altCamera = ghostCamera;
+        altCamera = ghostCamera;      
     }
 
     // Start is called before the first frame update
@@ -29,6 +33,7 @@ public class CameraController : MonoBehaviour
     {
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
+        initialEquipY = cameraMesh.transform.localPosition.y;
     }
 
     // Update is called once per frame
@@ -40,6 +45,18 @@ public class CameraController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             SwapCameras();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(isEquipped)
+            {
+                UnequipCamera();
+            }
+            else
+            {
+                EquipCamera();
+            }
         }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -69,6 +86,47 @@ public class CameraController : MonoBehaviour
 
         // Match collision layer to current camera layer
         Player.gameObject.layer = currentCamera.gameObject.layer;
+    }
+
+    IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
+    {
+        float elapsedTime = 0.0f;
+
+        while (elapsedTime < 1.0f)
+        {
+            float newY = initialOffset + EaseIn(elapsedTime) * offsetScale;
+            Vector3 newLocalPos = new Vector3(target.localPosition.x, newY, target.localPosition.z);
+
+            target.localPosition = newLocalPos;
+            elapsedTime += Time.deltaTime;
+
+            Debug.Log("Current local positionY: " + target.localPosition.y);
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    public void EquipCamera()
+    {
+        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
+        isEquipped = true;
+    }
+
+    public void UnequipCamera()
+    {
+        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
+        isEquipped = false;
+    }
+
+    float EaseIn(float time)
+    {
+        return 1 - Mathf.Cos((time * Mathf.PI) / 2);
+    }
+
+    float EaseOut(float time)
+    {
+        return Mathf.Sin((time * Mathf.PI) / 2);
     }
 
     public void DisableCamera()
