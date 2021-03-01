@@ -11,6 +11,6 @@ public class GameInitializer : MonoBehaviour
     void Start()
     {
         Instantiate(PlayerPrefab, transform.position, transform.rotation);
-        SceneManager.LoadScene("EntranceBlockout_Alternate", LoadSceneMode.Additive);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 }
