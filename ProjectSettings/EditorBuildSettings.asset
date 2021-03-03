@@ -11,10 +11,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Collaborators/Luke/Scenes/EntranceBlockout_Alternate.unity
     guid: c4bb109b5707a904a850c59dd81880e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blockout20210224.unity
     guid: a4c378b0daf44064dbf872e1505e60af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Blockout20210224 Alternate.unity
     guid: 6fa103c828608435cb4ade091ca48d7e
+  - enabled: 1
+    path: Assets/Collaborators/Luke/Scenes/LabEntrance_Alternate.unity
+    guid: b9a75334dc43e9c419e9150880a99ab0
+  - enabled: 1
+    path: Assets/Collaborators/Luke/Scenes/LabEntranceBlockout.unity
+    guid: 894e7e8d1a8383440837807fa6e1dc58
   m_configObjects: {}
