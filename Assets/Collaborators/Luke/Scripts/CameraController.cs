@@ -100,7 +100,6 @@ public class CameraController : MonoBehaviour
             target.localPosition = newLocalPos;
             elapsedTime += Time.deltaTime;
 
-            Debug.Log("Current local positionY: " + target.localPosition.y);
             yield return null;
         }
 
