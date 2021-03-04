@@ -42,10 +42,10 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            SwapCameras();
-        }
+        //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SwapCameras();
+        //}
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
         Player.Rotate(Vector3.up * mouseX);
     }
 
-    void SwapCameras()
+    public void SwapCameras()
     {
         // Swap references for current and altCamera
         Camera temp = currentCamera;
