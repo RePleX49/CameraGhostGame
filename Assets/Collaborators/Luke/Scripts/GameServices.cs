@@ -5,4 +5,5 @@ using UnityEngine;
 public static class GameServices
 {
     public static CameraController cameraController;
+    public static AudioController audioController;
 }

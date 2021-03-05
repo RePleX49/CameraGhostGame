@@ -22,10 +22,12 @@ public class CameraController : MonoBehaviour
     bool isDisabled = false;
     bool isEquipped = true;
 
+    const int alternateLayer = 12;
+
     void Awake()
     {
         currentCamera = defaultCamera;
-        altCamera = ghostCamera;      
+        altCamera = ghostCamera;
     }
 
     // Start is called before the first frame update
@@ -86,6 +88,15 @@ public class CameraController : MonoBehaviour
 
         // Match collision layer to current camera layer
         Player.gameObject.layer = currentCamera.gameObject.layer;
+
+        if(Player.gameObject.layer == alternateLayer)
+        {
+            GameServices.audioController.PlayAmbientNoise();
+        }
+        else
+        {
+            GameServices.audioController.StopAmbientNoise();
+        }
     }
 
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
@@ -94,7 +105,7 @@ public class CameraController : MonoBehaviour
 
         while (elapsedTime < 1.0f)
         {
-            float newY = initialOffset + EaseIn(elapsedTime) * offsetScale;
+            float newY = initialOffset + EaseInOut(elapsedTime) * offsetScale;
             Vector3 newLocalPos = new Vector3(target.localPosition.x, newY, target.localPosition.z);
 
             target.localPosition = newLocalPos;
@@ -126,6 +137,11 @@ public class CameraController : MonoBehaviour
     float EaseOut(float time)
     {
         return Mathf.Sin((time * Mathf.PI) / 2);
+    }
+
+    float EaseInOut(float time)
+    {
+        return -(Mathf.Cos(Mathf.PI * time) - 1) / 2;
     }
 
     public void DisableCamera()
