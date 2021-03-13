@@ -42,10 +42,10 @@ public class ScreenshotScript : MonoBehaviour
         if (isTakingPicture)
             return;
 
-        Camera altCamera = GameServices.cameraController.altCamera;
+        //Camera altCamera = GameServices.cameraController.altCamera;
         //Graphics.Blit(altCamera.targetTexture, snapshotTex);
-        RenderTexture.active = altCamera.targetTexture;
-        snapshotTexture2D.ReadPixels(new Rect(0, 0, altCamera.targetTexture.width, altCamera.targetTexture.height), 0, 0);
+        //RenderTexture.active = altCamera.targetTexture;
+        //snapshotTexture2D.ReadPixels(new Rect(0, 0, altCamera.targetTexture.width, altCamera.targetTexture.height), 0, 0);
         snapshotTexture2D.Apply();
         targetMaterial.mainTexture = (Texture)snapshotTexture2D;
 
