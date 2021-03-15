@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
 
     bool isDisabled = false;
     bool isEquipped = true;
+    bool isTransitioning = false;
 
     public bool inRealLayer { get; private set; }
 
@@ -117,6 +118,7 @@ public class CameraController : MonoBehaviour
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
     {
         float elapsedTime = 0.0f;
+        isTransitioning = true;
 
         while (elapsedTime < 1.0f)
         {
@@ -129,17 +131,24 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
 
+        isTransitioning = false;
         yield return null;
     }
 
     public void EquipCamera()
     {
+        if (isTransitioning)
+            return;
+
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
         isEquipped = true;
     }
 
     public void UnequipCamera()
     {
+        if (isTransitioning)
+            return;
+
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
         isEquipped = false;
     }
