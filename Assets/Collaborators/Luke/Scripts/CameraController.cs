@@ -36,6 +36,7 @@ public class CameraController : MonoBehaviour
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
         initialEquipY = cameraMesh.transform.localPosition.y;
+        GameServices.audioController.play_normal_Audio(2);
     }
 
     // Update is called once per frame
@@ -91,11 +92,13 @@ public class CameraController : MonoBehaviour
 
         if(Player.gameObject.layer == alternateLayer)
         {
-            GameServices.audioController.PlayAmbientNoise();
+            //GameServices.audioController.PlayAmbientNoise();
+            GameServices.audioController.play_alternate_Audio(3);
         }
         else
         {
-            GameServices.audioController.StopAmbientNoise();
+            //GameServices.audioController.StopAmbientNoise();
+            GameServices.audioController.play_normal_Audio(0);
         }
     }
 
