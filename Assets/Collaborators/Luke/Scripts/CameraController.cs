@@ -5,14 +5,22 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform Player;
+
+    [SerializeField]
     Camera currentCamera;
-    public Camera altCamera { get; private set; }
-    public Camera defaultCamera;
-    public Camera ghostCamera;
-    public GameObject cameraObject;
-    public GameObject cameraMesh;
+
+    [SerializeField]
+    Camera altCamera;
+
+    [SerializeField]
+    GameObject dimensionCamRenderer;
+
+    [SerializeField]
+    GameObject cameraMesh;
+
     public float verticalEquipOffset;
     float initialEquipY;
+
     public float mouseSensitivity = 100.0f;
     public float maxLookUp = 90.0f;
     public float minLookDown = -90.0f;
@@ -22,11 +30,9 @@ public class CameraController : MonoBehaviour
     bool isDisabled = false;
     bool isEquipped = true;
 
-    void Awake()
-    {
-        currentCamera = defaultCamera;
-        altCamera = ghostCamera;      
-    }
+    public bool inRealLayer { get; private set; }
+
+    const int alternateLayer = 12;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,15 @@ public class CameraController : MonoBehaviour
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
         initialEquipY = cameraMesh.transform.localPosition.y;
+
+        if(Player.gameObject.layer != alternateLayer)
+        {
+            inRealLayer = true;
+        }
+        else
+        {
+            inRealLayer = false;
+        }
     }
 
     // Update is called once per frame
@@ -42,10 +57,10 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            SwapCameras();
-        }
+        //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SwapCameras();
+        //}
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -65,13 +80,13 @@ public class CameraController : MonoBehaviour
         lookUpRotation -= mouseY;
         lookUpRotation = Mathf.Clamp(lookUpRotation, minLookDown, maxLookUp);
 
-        defaultCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        ghostCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        cameraObject.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        currentCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        dimensionCamRenderer.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         Player.Rotate(Vector3.up * mouseX);
     }
 
-    void SwapCameras()
+    public void SwapCameras()
     {
         // Swap references for current and altCamera
         Camera temp = currentCamera;
@@ -86,6 +101,17 @@ public class CameraController : MonoBehaviour
 
         // Match collision layer to current camera layer
         Player.gameObject.layer = currentCamera.gameObject.layer;
+
+        if(Player.gameObject.layer == alternateLayer)
+        {
+            inRealLayer = false;
+            GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
+        }
+        else
+        {
+            inRealLayer = true;
+            GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
+        }
     }
 
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
@@ -94,7 +120,7 @@ public class CameraController : MonoBehaviour
 
         while (elapsedTime < 1.0f)
         {
-            float newY = initialOffset + EaseIn(elapsedTime) * offsetScale;
+            float newY = initialOffset + EaseInOut(elapsedTime) * offsetScale;
             Vector3 newLocalPos = new Vector3(target.localPosition.x, newY, target.localPosition.z);
 
             target.localPosition = newLocalPos;
@@ -126,6 +152,11 @@ public class CameraController : MonoBehaviour
     float EaseOut(float time)
     {
         return Mathf.Sin((time * Mathf.PI) / 2);
+    }
+
+    float EaseInOut(float time)
+    {
+        return -(Mathf.Cos(Mathf.PI * time) - 1) / 2;
     }
 
     public void DisableCamera()
