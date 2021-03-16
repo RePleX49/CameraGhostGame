@@ -5,42 +5,67 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform Player;
-    Camera currentCamera;
-    public Camera altCamera { get; private set; }
-    public Camera defaultCamera;
-    public Camera ghostCamera;
-    public GameObject cameraObject;
-    public GameObject cameraMesh;
+
+    //[SerializeField]
+    public Camera currentCamera;
+
+    [SerializeField]
+    Camera altCamera;
+
+    [SerializeField]
+    GameObject dimensionCamRenderer;
+
+    [SerializeField]
+    GameObject cameraMesh;
+
     public float verticalEquipOffset;
     float initialEquipY;
+
     public float mouseSensitivity = 100.0f;
     public float maxLookUp = 90.0f;
     public float minLookDown = -90.0f;
 
     float lookUpRotation = 0.0f;
 
-    bool isDisabled = false;
-    bool isEquipped = true;
+    public bool isDisabled = false;
+    public bool isEquipped = false;
+    public bool isFullyEquipped = false;
+
+    public bool inRealLayer { get; private set; }
 
     const int alternateLayer = 12;
-
-    void Awake()
-    {
-        currentCamera = defaultCamera;
-        altCamera = ghostCamera;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
-        initialEquipY = cameraMesh.transform.localPosition.y;
+        initialEquipY = cameraMesh.transform.localPosition.y + verticalEquipOffset;
+
+        if(Player.gameObject.layer != alternateLayer)
+        {
+            inRealLayer = true;
+        }
+        else
+        {
+            inRealLayer = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        lookUpRotation -= mouseY;
+        lookUpRotation = Mathf.Clamp(lookUpRotation, minLookDown, maxLookUp);
+
+        currentCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        dimensionCamRenderer.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        Player.Rotate(Vector3.up * mouseX);
+
         if (isDisabled)
             return;
 
@@ -60,17 +85,6 @@ public class CameraController : MonoBehaviour
                 EquipCamera();
             }
         }
-
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        lookUpRotation -= mouseY;
-        lookUpRotation = Mathf.Clamp(lookUpRotation, minLookDown, maxLookUp);
-
-        defaultCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        ghostCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        cameraObject.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        Player.Rotate(Vector3.up * mouseX);
     }
 
     public void SwapCameras()
@@ -91,11 +105,13 @@ public class CameraController : MonoBehaviour
 
         if(Player.gameObject.layer == alternateLayer)
         {
-            GameServices.audioController.PlayAmbientNoise();
+            inRealLayer = false;
+            GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
         }
         else
         {
-            GameServices.audioController.StopAmbientNoise();
+            inRealLayer = true;
+            GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
         }
     }
 
@@ -113,6 +129,8 @@ public class CameraController : MonoBehaviour
 
             yield return null;
         }
+
+        isFullyEquipped = true;
 
         yield return null;
     }
