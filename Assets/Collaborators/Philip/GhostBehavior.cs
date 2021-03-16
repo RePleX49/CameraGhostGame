@@ -16,16 +16,47 @@ public class GhostBehavior : MonoBehaviour
     public float distanceFromPlayer;
     public float detectionDistance;
 
+    public bool stunned;
+
+    public Collider objCollider;
+    public Plane[] planes;
+    public Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
+        cam = GameObject.Find("Player").GetComponent<CameraController>().currentCamera;
+        planes = GeometryUtility.CalculateFrustumPlanes(cam);
         player = GameObject.Find("Player");
+        objCollider = GetComponent<Collider>();
         RandomStartLocation();
     }
 
     // Update is called once per frame
     void Update()
     {
+        planes = GeometryUtility.CalculateFrustumPlanes(cam);
+
+        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().isFullyEquipped && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
+        {
+            RaycastHit hit;
+            if (Physics.Linecast(transform.position, player.transform.position, out hit))
+            {
+                if(hit.transform.tag == "Player")
+                {
+                    StartCoroutine(Stun());
+                    stunned = true;
+                }
+            }
+        }
+        else if(Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().isFullyEquipped)
+        {
+            Debug.Log("Nothing has been detected");
+        }
+        if (stunned)
+        {
+            return;
+        }
         distanceFromPlayer = Vector3.Distance(this.transform.position, player.transform.position);
         if(distanceFromPlayer < detectionDistance)
         {
@@ -87,5 +118,11 @@ public class GhostBehavior : MonoBehaviour
         Quaternion toRotation = Quaternion.LookRotation(player.transform.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 10 * Time.deltaTime);
         transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
+    IEnumerator Stun()
+    {
+        yield return new WaitForSeconds(5f);
+        stunned = false;
     }
 }
