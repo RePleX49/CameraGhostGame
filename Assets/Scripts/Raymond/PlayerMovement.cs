@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
             targetVelocity *= airControl;
         }
 
+        // Using SmoothDamp to interpolate velocity
         velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref currentVelocity, velocitySmoothTime);
         velocityY += Time.deltaTime * gravity; // apply gravity to velocityY float
 

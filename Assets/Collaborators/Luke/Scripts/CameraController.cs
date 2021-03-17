@@ -27,9 +27,9 @@ public class CameraController : MonoBehaviour
 
     float lookUpRotation = 0.0f;
 
-    public bool isDisabled = false;
-    public bool isEquipped = false;
-    public bool isFullyEquipped = false;
+    bool isDisabled = false;
+    bool isEquipped = false;
+    bool isTransitioning = false;
 
     public bool inRealLayer { get; private set; }
 
@@ -103,6 +103,7 @@ public class CameraController : MonoBehaviour
         // Match collision layer to current camera layer
         Player.gameObject.layer = currentCamera.gameObject.layer;
 
+        // Swap audio based on current layer
         if(Player.gameObject.layer == alternateLayer)
         {
             inRealLayer = false;
@@ -118,6 +119,7 @@ public class CameraController : MonoBehaviour
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
     {
         float elapsedTime = 0.0f;
+        isTransitioning = true;
 
         while (elapsedTime < 1.0f)
         {
@@ -130,21 +132,36 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
 
-        isFullyEquipped = true;
+        isTransitioning = false;
 
         yield return null;
     }
 
     public void EquipCamera()
     {
+        if(isTransitioning)
+        {
+            return;
+        }
+
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
         isEquipped = true;
     }
 
     public void UnequipCamera()
     {
+        if (isTransitioning)
+        {
+            return;
+        }
+
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
         isEquipped = false;
+    }
+
+    public bool IsCameraReady()
+    {
+        return isEquipped && !isTransitioning;
     }
 
     float EaseIn(float time)

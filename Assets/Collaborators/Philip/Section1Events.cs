@@ -29,15 +29,16 @@ public class Section1Events : MonoBehaviour
     {
         if (talking)
         {
-            // stop the DRAIN
+            GameServices.gameCycleManager.PauseUpdate();
         }
         else
         {
-            // resume the DRAIN
+            GameServices.gameCycleManager.ResumeUpdate();
         }
-        if (cameraController.isFullyEquipped && eventTriggered[1] && !eventTriggered[2])
+
+        if (cameraController.IsCameraReady() && eventTriggered[1] && !eventTriggered[2])
         {
-            cameraController.isDisabled = true;
+            cameraController.DisableCamera();
             playerMovement.enabled = false;
             text3.SetActive(true);
         }
@@ -47,9 +48,9 @@ public class Section1Events : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         playerMovement = GameObject.Find("Player(Clone)").GetComponent<PlayerMovement>();
-        cameraController = GameObject.Find("Player(Clone)").GetComponent<CameraController>();
+        cameraController = GameServices.cameraController;
         ghostCameraObject = GameObject.Find("Player(Clone)/Camera_DimensionCam");
-        cameraController.isDisabled = true;
+        cameraController.DisableCamera();
         playerMovement.enabled = false;
         text1.SetActive(true);
         talking = true;
@@ -60,7 +61,7 @@ public class Section1Events : MonoBehaviour
         if(textNumber == 2)
         {
             cameraObject.gameObject.SetActive(false);
-            cameraController.isDisabled = false;
+            cameraController.EnableCamera();
         }
         else if(textNumber == 4)
         {
@@ -70,7 +71,7 @@ public class Section1Events : MonoBehaviour
         }
         else if(textNumber >= 3)
         {
-            cameraController.isDisabled = false;
+            cameraController.EnableCamera();
         }
         eventTriggered[textNumber - 1] = true;
         talking = false;
@@ -83,12 +84,12 @@ public class Section1Events : MonoBehaviour
         {
             if (eventNumber == 2)
             {
-                cameraController.isDisabled = true;
+                cameraController.DisableCamera();
                 playerMovement.enabled = false;
                 talking = true;
                 text2.SetActive(true);
             }
-            if(eventNumber == 4 && eventTriggered[2] && cameraController.isFullyEquipped)
+            if(eventNumber == 4 && eventTriggered[2] && cameraController.IsCameraReady())
             {
                 playerMovement.enabled = false;
                 talking = true;
@@ -105,7 +106,6 @@ public class Section1Events : MonoBehaviour
 
     IEnumerator ShowPortalAppearance()
     {
-
         cameraController.currentCamera.enabled = false;
         ghostCameraObject.SetActive(false);
         portalCamera.enabled = true;

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameInitializer : MonoBehaviour
 {
     public GameObject PlayerPrefab;
+    public int alternateSceneBuildIndex = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         Instantiate(PlayerPrefab, transform.position, transform.rotation);
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene(alternateSceneBuildIndex, LoadSceneMode.Additive);
     }
 }

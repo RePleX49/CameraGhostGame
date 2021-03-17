@@ -832,9 +832,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685a6658acccf0841a94c7388395cf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  walkSpeed: 12
+  velocitySmoothTime: 0.1
   gravity: -20
   jumpHeight: 3
+  airControl: 0.7
 --- !u!81 &5411740908096150152
 AudioListener:
   m_ObjectHideFlags: 0

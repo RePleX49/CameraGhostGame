@@ -66,7 +66,8 @@ public class TextBoxManager : MonoBehaviour
             Scroll();
             goText = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && currentLine == textLines.Count - 1 && cancelTyping)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            && currentLine == textLines.Count - 1 && cancelTyping)
         {
             text.text = "";
             eventManager.SendMessage("FinishDialogue", textNumber);
@@ -74,11 +75,13 @@ public class TextBoxManager : MonoBehaviour
             textbox.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && !cancelTyping)
+        else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            && !cancelTyping)
         {
             cancelTyping = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && cancelTyping)
+        else if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            && cancelTyping)
         {
             NextLine();
         }
