@@ -1,0 +1,5 @@
+1"The map!"
+1"Hmm..."
+1"Apparently, there is an elevator on the second floor of this lab."
+1"But if I remember correctly, the staircase leading to the second floor is broken."
+1"Is there something I can use to go up the second floor?"

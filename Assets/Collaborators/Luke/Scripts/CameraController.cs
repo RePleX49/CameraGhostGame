@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public Transform Player;
 
-    [SerializeField]
-    Camera currentCamera;
+    //[SerializeField]
+    public Camera currentCamera;
 
     [SerializeField]
     Camera altCamera;
@@ -27,9 +27,9 @@ public class CameraController : MonoBehaviour
 
     float lookUpRotation = 0.0f;
 
-    bool isDisabled = false;
-    bool isEquipped = true;
-    bool isTransitioning = false;
+    public bool isDisabled = false;
+    public bool isEquipped = false;
+    public bool isFullyEquipped = false;
 
     public bool inRealLayer { get; private set; }
 
@@ -40,8 +40,7 @@ public class CameraController : MonoBehaviour
     {
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
-        initialEquipY = cameraMesh.transform.localPosition.y;
-        GameServices.audioController.play_normal_Audio(2);
+        initialEquipY = cameraMesh.transform.localPosition.y + verticalEquipOffset;
 
         if(Player.gameObject.layer != alternateLayer)
         {
@@ -56,6 +55,17 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        lookUpRotation -= mouseY;
+        lookUpRotation = Mathf.Clamp(lookUpRotation, minLookDown, maxLookUp);
+
+        currentCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        dimensionCamRenderer.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
+        Player.Rotate(Vector3.up * mouseX);
+
         if (isDisabled)
             return;
 
@@ -75,17 +85,6 @@ public class CameraController : MonoBehaviour
                 EquipCamera();
             }
         }
-
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        lookUpRotation -= mouseY;
-        lookUpRotation = Mathf.Clamp(lookUpRotation, minLookDown, maxLookUp);
-
-        currentCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        dimensionCamRenderer.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        Player.Rotate(Vector3.up * mouseX);
     }
 
     public void SwapCameras()
@@ -107,19 +106,18 @@ public class CameraController : MonoBehaviour
         if(Player.gameObject.layer == alternateLayer)
         {
             inRealLayer = false;
-            GameServices.audioController.play_alternate_Audio(3); // Play Alternate Dimension Sounds
+            GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
         }
         else
         {
             inRealLayer = true;
-            GameServices.audioController.play_normal_Audio(0); // Play Normal Dimension Sounds
+            GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
         }
     }
 
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
     {
         float elapsedTime = 0.0f;
-        isTransitioning = true;
 
         while (elapsedTime < 1.0f)
         {
@@ -132,24 +130,19 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
 
-        isTransitioning = false;
+        isFullyEquipped = true;
+
         yield return null;
     }
 
     public void EquipCamera()
     {
-        if (isTransitioning)
-            return;
-
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
         isEquipped = true;
     }
 
     public void UnequipCamera()
     {
-        if (isTransitioning)
-            return;
-
         StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
         isEquipped = false;
     }
