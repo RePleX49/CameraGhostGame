@@ -41,6 +41,7 @@ public class CameraController : MonoBehaviour
         GameServices.cameraController = this;
         Cursor.lockState = CursorLockMode.Locked;
         initialEquipY = cameraMesh.transform.localPosition.y;
+        GameServices.audioController.play_normal_Audio(2);
 
         if(Player.gameObject.layer != alternateLayer)
         {
@@ -106,12 +107,12 @@ public class CameraController : MonoBehaviour
         if(Player.gameObject.layer == alternateLayer)
         {
             inRealLayer = false;
-            GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
+            GameServices.audioController.play_alternate_Audio(3); // Play Alternate Dimension Sounds
         }
         else
         {
             inRealLayer = true;
-            GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
+            GameServices.audioController.play_normal_Audio(0); // Play Normal Dimension Sounds
         }
     }
 
