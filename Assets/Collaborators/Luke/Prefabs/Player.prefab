@@ -862,13 +862,10 @@ MonoBehaviour:
   altCamera: {fileID: 5411740907221405356}
   dimensionCamRenderer: {fileID: 704074430973141081}
   cameraMesh: {fileID: 6767815814415604547}
-  verticalEquipOffset: 5
+  verticalEquipOffset: 4.75
   mouseSensitivity: 1
   maxLookUp: 90
   minLookDown: -90
-  isDisabled: 0
-  isEquipped: 0
-  isFullyEquipped: 0
 --- !u!1 &5730288476921794234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767815814415604547}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -4.73, z: 1.723}
+  m_LocalPosition: {x: 0, y: -4.73, z: 1.18}
   m_LocalScale: {x: 0.15991001, y: 0.10968, z: 0.01}
   m_Children: []
   m_Father: {fileID: 7618172772949333919}

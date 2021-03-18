@@ -37,7 +37,7 @@ public class GhostBehavior : MonoBehaviour
     {
         planes = GeometryUtility.CalculateFrustumPlanes(cam);
 
-        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().isFullyEquipped && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
+        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady() && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
         {
             RaycastHit hit;
             if (Physics.Linecast(transform.position, player.transform.position, out hit))
@@ -49,7 +49,7 @@ public class GhostBehavior : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().isFullyEquipped)
+        else if(Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady())
         {
             Debug.Log("Nothing has been detected");
         }

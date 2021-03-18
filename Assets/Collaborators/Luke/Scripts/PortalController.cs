@@ -11,7 +11,11 @@ public class PortalController : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             GameServices.cameraController.SwapCameras();
-            eventManager.SendMessage("EnteredPortal");
+
+            if(eventManager != null)
+            {
+                eventManager.SendMessage("EnteredPortal");
+            }            
         }
     }
 }

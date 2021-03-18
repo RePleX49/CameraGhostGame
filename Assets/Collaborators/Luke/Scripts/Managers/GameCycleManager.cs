@@ -7,10 +7,10 @@ public class GameCycleManager : MonoBehaviour
     public float sanityDrainRateNormal = 0.2f;
     public float sanityDrainRateGhost = 0.4f;
 
-    public bool inDialogue;
+    bool inDialogue;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         inDialogue = false;
         GameServices.gameCycleManager = this;

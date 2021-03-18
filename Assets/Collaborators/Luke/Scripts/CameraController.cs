@@ -35,10 +35,14 @@ public class CameraController : MonoBehaviour
 
     const int alternateLayer = 12;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         GameServices.cameraController = this;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {      
         Cursor.lockState = CursorLockMode.Locked;
         initialEquipY = cameraMesh.transform.localPosition.y + verticalEquipOffset;
 
@@ -107,12 +111,12 @@ public class CameraController : MonoBehaviour
         if(Player.gameObject.layer == alternateLayer)
         {
             inRealLayer = false;
-            GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
+            //GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
         }
         else
         {
             inRealLayer = true;
-            GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
+            //GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
         }
     }
 
