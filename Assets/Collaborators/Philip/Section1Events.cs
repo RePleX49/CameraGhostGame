@@ -21,7 +21,7 @@ public class Section1Events : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameServices.gameCycleManager.PauseUpdate();
         StartCoroutine(LateStart()); //TODO refactor not actually a LateStart
     }
 
@@ -30,11 +30,11 @@ public class Section1Events : MonoBehaviour
     {
         if (talking)
         {
-            GameServices.gameCycleManager.PauseUpdate();
+            
         }
         else
         {
-            GameServices.gameCycleManager.ResumeUpdate();
+            
         }
 
         if (GameServices.cameraController.IsCameraReady() && eventTriggered[1] && !eventTriggered[2])
@@ -73,6 +73,10 @@ public class Section1Events : MonoBehaviour
         else if(textNumber >= 3)
         {
             cameraController.EnableCamera();
+            if(textNumber == 6)
+            {
+                GameServices.gameCycleManager.ResumeUpdate();
+            }
         }
         eventTriggered[textNumber - 1] = true;
         talking = false;

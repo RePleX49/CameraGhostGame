@@ -833,9 +833,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 12
-  velocitySmoothTime: 0.1
-  gravity: -20
-  jumpHeight: 3
+  velocitySmoothTime: 0.125
+  gravity: -22.5
+  jumpHeight: 1.5
   airControl: 0.7
 --- !u!81 &5411740908096150152
 AudioListener:
@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6509434, b: 0.22288385, a: 1}
+  m_Color: {r: 0.101103604, g: 0.3018868, b: 0.111956745, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1160,17 +1160,17 @@ RectTransform:
   m_GameObject: {fileID: 7713555724630229162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2.5, z: 1}
   m_Children:
   - {fileID: 8912498622018291779}
   - {fileID: 441853548794793223}
   m_Father: {fileID: 1531546801987524867}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -224, y: 69}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0.51960415, y: 0}
+  m_AnchorMax: {x: 0.51960415, y: 0}
+  m_AnchoredPosition: {x: -0.000030517578, y: 74}
+  m_SizeDelta: {x: 338.35452, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8465966706490456200
 MonoBehaviour:
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.642
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

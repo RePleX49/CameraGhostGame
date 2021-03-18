@@ -49,10 +49,12 @@ public class CameraController : MonoBehaviour
         if(Player.gameObject.layer != alternateLayer)
         {
             inRealLayer = true;
+            GameServices.audioController.SwitchToNormalAudio();
         }
         else
         {
             inRealLayer = false;
+            GameServices.audioController.SwitchToAlternateAudio();
         }
     }
 
@@ -112,11 +114,13 @@ public class CameraController : MonoBehaviour
         {
             inRealLayer = false;
             //GameServices.audioController.PlayAmbientNoise(); // Play Alternate Dimension Sounds
+            GameServices.audioController.SwitchToAlternateAudio();
         }
         else
         {
             inRealLayer = true;
             //GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
+            GameServices.audioController.SwitchToNormalAudio();
         }
     }
 
