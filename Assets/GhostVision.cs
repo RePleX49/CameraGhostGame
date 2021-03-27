@@ -20,6 +20,7 @@ public class GhostVision : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            Debug.Log("oh");
             SendMessageUpwards("DetectPlayer");
         }
     }
