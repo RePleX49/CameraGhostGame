@@ -13,9 +13,6 @@ public class CameraController : MonoBehaviour
     Camera altCamera;
 
     [SerializeField]
-    GameObject dimensionCamRenderer;
-
-    [SerializeField]
     GameObject cameraMesh;
 
     public float verticalEquipOffset;
@@ -69,7 +66,6 @@ public class CameraController : MonoBehaviour
 
         currentCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
-        dimensionCamRenderer.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         Player.Rotate(Vector3.up * mouseX);
 
         if (isDisabled)
@@ -93,6 +89,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    // Same as "switching dimensions"
     public void SwapCameras()
     {
         // Swap references for current and altCamera
@@ -172,6 +169,18 @@ public class CameraController : MonoBehaviour
         return isEquipped && !isTransitioning;
     }
 
+    public void DisableCamera()
+    {
+        isDisabled = true;
+    }
+
+    public void EnableCamera()
+    {
+        isDisabled = false;
+    }
+
+    // Easing functions
+    // ****************
     float EaseIn(float time)
     {
         return 1 - Mathf.Cos((time * Mathf.PI) / 2);
@@ -185,15 +194,5 @@ public class CameraController : MonoBehaviour
     float EaseInOut(float time)
     {
         return -(Mathf.Cos(Mathf.PI * time) - 1) / 2;
-    }
-
-    public void DisableCamera()
-    {
-        isDisabled = true;
-    }
-
-    public void EnableCamera()
-    {
-        isDisabled = false;
     }
 }

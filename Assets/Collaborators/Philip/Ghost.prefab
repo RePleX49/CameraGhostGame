@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6026012288280254537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.1, y: 3.9, z: -55.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.0418713, y: 3.0418713, z: 3.0418713}
   m_Children:
   - {fileID: 6026012289253309552}
@@ -218,19 +218,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80fbe003154f4f0f86dfdb344b1a5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: -160
-  rightBound: 160
-  downBound: 4
-  upBound: 5
-  backBound: -100
-  forwardBound: 100
-  speed: 10
+  agent: {fileID: 0}
+  spots: []
+  currentSpotNumber: 0
+  backtracked: 1
   player: {fileID: 0}
-  distanceFromPlayer: 0
   detected: 0
   detectionTime: 0
   currentDetectionTime: 0
+  alert: 0
   stunned: 0
+  stunTime: 0
   objCollider: {fileID: 0}
   cam: {fileID: 0}
 --- !u!1 &6026012289253309555
