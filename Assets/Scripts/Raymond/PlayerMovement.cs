@@ -35,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
             velocityY = -2f;
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump"))
         {
-            velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Jump();
         }
 
         float x = Input.GetAxisRaw("Horizontal");
@@ -53,11 +53,19 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Using SmoothDamp to interpolate velocity
-        velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref currentVelocity, velocitySmoothTime);
+        velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref currentVelocity, velocitySmoothTime);        
         velocityY += Time.deltaTime * gravity; // apply gravity to velocityY float
 
         Vector3 finalVelocity = velocity + (Vector3.up * velocityY);
 
         controller.Move(finalVelocity * Time.deltaTime);
+    }
+
+    void Jump()
+    {
+        if (controller.isGrounded)
+        {
+            velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }      
     }
 }
