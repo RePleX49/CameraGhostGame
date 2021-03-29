@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     CharacterController controller;
 
     public float walkSpeed = 12f;
+    public float sprintSpeed = 15f;
     public float velocitySmoothTime = 0.2f;
     Vector3 velocity;
     Vector3 currentVelocity;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isSprinting = Input.GetAxisRaw("Sprint") > 0;
         isGrounded = controller.isGrounded;
 
         if (isGrounded && velocityY < 0)
@@ -43,17 +45,24 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
+        Move(x, z, isSprinting);
+    }
+
+    void Move(float x, float z, bool isSprinting)
+    {
         // make velocity vector
         Vector3 targetVelocity = transform.right * x + transform.forward * z;
         targetVelocity.Normalize();
-        targetVelocity *= walkSpeed;
+
+        float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
+        targetVelocity *= moveSpeed;
         if (!isGrounded)
         {
             targetVelocity *= airControl;
         }
 
         // Using SmoothDamp to interpolate velocity
-        velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref currentVelocity, velocitySmoothTime);        
+        velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref currentVelocity, velocitySmoothTime);
         velocityY += Time.deltaTime * gravity; // apply gravity to velocityY float
 
         Vector3 finalVelocity = velocity + (Vector3.up * velocityY);
