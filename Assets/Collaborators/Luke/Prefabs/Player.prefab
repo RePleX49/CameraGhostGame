@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 12
-  sprintSpeed: 22
+  sprintSpeed: 18
   velocitySmoothTime: 0.125
   gravity: -22.5
   jumpHeight: 1.5

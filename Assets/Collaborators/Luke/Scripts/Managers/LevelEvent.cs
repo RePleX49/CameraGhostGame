@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +8,10 @@ public enum LevelEventType
     DialogueOnly,
     Appear,
     Disappear,
-    LevelTransition
+    LevelTransition,
+    ChangeMaterial
 }
 
-[RequireComponent(typeof(SphereCollider))]
 public class LevelEvent : MonoBehaviour
 {
     public GameObject targetObject;
@@ -23,6 +22,8 @@ public class LevelEvent : MonoBehaviour
     public float delayBeforeTransition;
 
     public TextBoxManager eventDialogue;
+
+    public Material changeMaterial;
 
     private void Start()
     {
@@ -40,21 +41,22 @@ public class LevelEvent : MonoBehaviour
 
     public void PlayLevelEvent()
     {
-        switch(eventType)
+        PlayNextEvent();
+
+        // Event behavior based on type
+        switch (eventType)
         {
             case LevelEventType.Appear:
                 targetObject.SetActive(true);
                 break;
             case LevelEventType.Disappear:
                 targetObject.SetActive(false);
-                if(nextEvent)
-                {
-                    nextEvent.PlayLevelEvent();
-                }
-                
                 break;
             case LevelEventType.LevelTransition:
                 StartCoroutine(TransitionLevel());
+                break;
+            case LevelEventType.ChangeMaterial:
+                targetObject.GetComponent<MeshRenderer>().material = changeMaterial;
                 break;
             default:
                 break;
@@ -64,7 +66,15 @@ public class LevelEvent : MonoBehaviour
         {
             eventDialogue.gameObject.SetActive(true);
             GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = false;
-            gameObject.SetActive(false);
+            gameObject.GetComponent<Collider>().enabled = false;
+        }
+    }
+
+    void PlayNextEvent()
+    {
+        if(nextEvent)
+        {
+            nextEvent.PlayLevelEvent();
         }
     }
 

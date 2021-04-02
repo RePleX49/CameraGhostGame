@@ -7274,10 +7274,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
-  eventType: 2
+  eventType: 3
   nextEvent: {fileID: 0}
   transitionToSceneIndex: 2
   delayBeforeTransition: 3
+  eventDialogue: {fileID: 0}
+  changeMaterial: {fileID: 0}
 --- !u!135 &302347282
 SphereCollider:
   m_ObjectHideFlags: 0
