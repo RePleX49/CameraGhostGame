@@ -70,7 +70,16 @@ public class TextBoxManager : MonoBehaviour
             && currentLine == textLines.Count - 1 && cancelTyping)
         {
             text.text = "";
-            eventManager.SendMessage("FinishDialogue", textNumber);
+
+            if(eventManager)
+            {
+                eventManager.SendMessage("FinishDialogue", textNumber);
+            }
+            else
+            {
+                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = true;
+            }
+            
             personTalkingBox.gameObject.SetActive(false);
             textbox.gameObject.SetActive(false);
             this.gameObject.SetActive(false);

@@ -1,0 +1,8 @@
+2“Holy crap, you really did it! Although I should expect nothing less from my best friend.” 
+1“Now I should be able to open the vault door, right?”
+2“Hmmmm. I’m not too sure, actually. You should go and check.” 
+1“Aren't you able to check on your end?” 
+2“Mmmm I'm busy!”
+1“To busy to check a door...?"
+2"I'm preparing something, just head back to the vault door."
+1"Ugh fine."

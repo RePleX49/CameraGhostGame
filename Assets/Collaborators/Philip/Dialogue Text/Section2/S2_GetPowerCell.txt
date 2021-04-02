@@ -1,0 +1,5 @@
+2"Nice you found a power cell for the generator."
+1"What's inside of this?"
+2"I'd have to write a whole textbook to explain that to you."
+1"Ok fine, I'll ask you later. So how do I use it?"
+2"Just find the generator, pop that in, and you're green."

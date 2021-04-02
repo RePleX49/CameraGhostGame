@@ -8,6 +8,7 @@ public static class GameServices
     public static AudioController audioController;
     public static ResourceManager playerStats;
     public static GameCycleManager gameCycleManager;
+    public static PlayerUI playerUI;
 
     public static void Initialize()
     {

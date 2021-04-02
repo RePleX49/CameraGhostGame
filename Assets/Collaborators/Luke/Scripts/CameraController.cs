@@ -195,4 +195,9 @@ public class CameraController : MonoBehaviour
     {
         return -(Mathf.Cos(Mathf.PI * time) - 1) / 2;
     }
+
+    public GameObject GetCameraMesh()
+    {
+        return cameraMesh;
+    }
 }

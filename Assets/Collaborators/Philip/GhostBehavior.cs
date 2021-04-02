@@ -36,14 +36,24 @@ public class GhostBehavior : MonoBehaviour
 
     void Start()
     {
-        cam = GameObject.Find("Player").GetComponent<CameraController>().currentCamera;
-        planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        //cam = GameObject.Find("Player").GetComponent<CameraController>().currentCamera;
+        planes = GeometryUtility.CalculateFrustumPlanes(GameServices.cameraController.currentCamera);
         player = GameObject.Find("Player");
         objCollider = GetComponent<Collider>();
     }
 
     void Update()
     {
+        if(cam == null)
+        {
+            cam = GameServices.cameraController.currentCamera;
+        }
+
+        if(!player)
+        {
+            player = GameServices.cameraController.gameObject;
+        }
+
         // if the ghost is alert but doesn't see the player, start decrementing its memory so that it can eventually forget about the player
         if(!detected && currentDetectionTime > 0)
         {
