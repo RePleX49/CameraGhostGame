@@ -71,10 +71,12 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
+        /*
         if(Input.GetKeyDown(KeyCode.E))
         {
             SwapCameras();
         }
+        */
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
