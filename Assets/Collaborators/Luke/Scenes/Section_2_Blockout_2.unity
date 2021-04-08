@@ -21211,8 +21211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05fede52dae1c343bfbd8772c47fdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityRechargeRate: 1
-  sanityDrainRateGhost: 0.6
+  sanityRechargeRate: 5
+  sanityDrainRateGhost: 1
 --- !u!4 &1184780755
 Transform:
   m_ObjectHideFlags: 0
@@ -21637,7 +21637,7 @@ GameObject:
   - component: {fileID: 1234479984}
   - component: {fileID: 1234479983}
   m_Layer: 11
-  m_Name: VaultDialogueTrigger
+  m_Name: LeftDoorDialogueTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21656,7 +21656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
-  eventType: 0
+  eventType: 1
   nextEvent: {fileID: 0}
   transitionToSceneIndex: 0
   delayBeforeTransition: 0
@@ -21683,7 +21683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234479982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.38}
+  m_LocalPosition: {x: 19.13, y: 0, z: 5.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -24754,8 +24754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05fede52dae1c343bfbd8772c47fdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityDrainRateNormal: 0.1
-  sanityDrainRateGhost: 0.4
+  sanityRechargeRate: 5
+  sanityDrainRateGhost: 1
 --- !u!4 &2017398665
 Transform:
   m_ObjectHideFlags: 0
@@ -36307,7 +36307,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!1 &3305785909039168898
 GameObject:
@@ -38133,7 +38133,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475348619143118498}
-  m_Mesh: {fileID: -1916698731132419136, guid: d3ddf6e852a76bc4ca1a2eae49f21126, type: 3}
+  m_Mesh: {fileID: -1916698731132419136, guid: 81f160477386e134f8f33084326f2b10, type: 3}
 --- !u!1 &4641518467229422076
 GameObject:
   m_ObjectHideFlags: 0
