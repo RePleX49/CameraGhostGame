@@ -35801,6 +35801,7 @@ MonoBehaviour:
   currentCamera: {fileID: 0}
   altCamera: {fileID: 0}
   cameraMesh: {fileID: 5802991498478432712}
+  cameraAnimator: {fileID: 0}
   verticalEquipOffset: 5
   mouseSensitivity: 1
   maxLookUp: 90
