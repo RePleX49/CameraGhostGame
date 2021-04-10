@@ -15,6 +15,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject cameraMesh;
 
+    [SerializeField]
+    Animator cameraAnimator;
+
     public float verticalEquipOffset;
     float initialEquipY;
 
@@ -146,23 +149,26 @@ public class CameraController : MonoBehaviour
 
     public void EquipCamera()
     {
-        if(isTransitioning)
+        if(cameraAnimator.IsInTransition(0))
         {
             return;
         }
 
-        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
+        // StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
+        cameraAnimator.SetTrigger("Equip");
+        
         isEquipped = true;
     }
 
     public void UnequipCamera()
     {
-        if (isTransitioning)
+        if (cameraAnimator.IsInTransition(0))
         {
             return;
         }
 
-        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
+        //StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
+        cameraAnimator.SetTrigger("Unequip");
         isEquipped = false;
     }
 
