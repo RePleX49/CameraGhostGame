@@ -65,15 +65,31 @@ public class GhostBehavior : MonoBehaviour
             player = GameServices.cameraController.gameObject;
         }
 
+        if(Vector3.Distance(player.transform.position, transform.position) < 10f)
+        {
+            GameServices.gameCycleManager.BeingHunted2();
+            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
+        }
+        else if(Vector3.Distance(player.transform.position, transform.position) < 20f)
+        {
+            GameServices.gameCycleManager.BeingHunted1();
+            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
+        }
+        else
+        {
+            GameServices.gameCycleManager.ResetDrainRate();
+            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
+        }
+
         // if the ghost is alert but doesn't see the player, start decrementing its memory so that it can eventually forget about the player
-        if(!detected && currentDetectionTime > 0)
+        if (!detected && currentDetectionTime > 0)
         {
             currentDetectionTime -= Time.deltaTime;
         }
 
         // camera business
         planes = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady() && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
+        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady() && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds) && player.layer == 12)
         {
             // sending a raycast from ghost to player... if it hits, it stuns
             // we use a raycast to ensure that there is no wall or object between the ghost and the player

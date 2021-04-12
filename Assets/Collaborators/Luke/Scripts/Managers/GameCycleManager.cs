@@ -37,4 +37,19 @@ public class GameCycleManager : MonoBehaviour
     {
         inDialogue = false;
     }
+
+    public void BeingHunted1()
+    {
+        sanityDrainRateGhost = 3.6f;
+    }
+
+    public void BeingHunted2()
+    {
+        sanityDrainRateGhost = 7.2f;
+    }
+
+    public void ResetDrainRate()
+    {
+        sanityDrainRateGhost = 0.4f;
+    }
 }
