@@ -22,6 +22,7 @@ public class PlayerUI : MonoBehaviour
         sanitySlider.value = GameServices.playerStats.GetSanityPercentage();
     }
 
+    // Trigger for fade to black effect
     public void PlayFadeOut()
     {
         fadeOutAnim.SetTrigger("FadeOut");
