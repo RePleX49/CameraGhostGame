@@ -34,12 +34,23 @@ public class GhostBehavior : MonoBehaviour
     public Plane[] planes;
     public Camera cam;
 
+    public bool playingSound1;
+    public bool playingSound2;
+    public bool playingSound3;
+    public AudioSource audiosrc;
+    public AudioClip breath1;
+    public AudioClip breath2;
+    public AudioClip breath3;
+    public AudioClip whisper;
+
     void Start()
     {
         //cam = GameObject.Find("Player").GetComponent<CameraController>().currentCamera;
         planes = GeometryUtility.CalculateFrustumPlanes(GameServices.cameraController.currentCamera);
         player = GameObject.Find("Player");
         objCollider = GetComponent<Collider>();
+        audiosrc.clip = whisper;
+        //audiosrc.Play();
     }
 
     void Update()
@@ -88,6 +99,10 @@ public class GhostBehavior : MonoBehaviour
         // if stunned, stay in place and don't do anything else
         if (stunned)
         {
+            playingSound1 = false;
+            playingSound2 = false;
+            playingSound3 = false;
+            audiosrc.Stop();
             agent.SetDestination(transform.position);
             return;
         }
@@ -95,6 +110,14 @@ public class GhostBehavior : MonoBehaviour
         // if it is not alert, just patrol
         if (!alert && backtracked)
         {
+            if (!playingSound1 && player.layer == 12)
+            {
+                audiosrc.clip = whisper;
+                audiosrc.Play();
+                playingSound1 = true;
+                playingSound2 = false;
+                playingSound3 = false;
+            }
             Patrol();
         }
 
@@ -112,12 +135,28 @@ public class GhostBehavior : MonoBehaviour
                 // keep backtracking back to its patrolling path
                 else
                 {
+                    if (!playingSound2 && player.layer == 12)
+                    {
+                        audiosrc.clip = breath3;
+                        audiosrc.Play();
+                        playingSound1 = false;
+                        playingSound2 = true;
+                        playingSound3 = false;
+                    }
                     BackTrack();
                 }
             }
             // keep chasing the player
             else
             {
+                if (!playingSound3 && player.layer == 12)
+                {
+                    audiosrc.clip = breath1;
+                    audiosrc.Play();
+                    playingSound1 = false;
+                    playingSound2 = false;
+                    playingSound3 = true;
+                }
                 backtracked = false;
                 Hunt();
             }
@@ -135,7 +174,7 @@ public class GhostBehavior : MonoBehaviour
     public void DetectPlayer()
     {
         RaycastHit hit;
-        Vector3 offset = new Vector3(0.0f, 1.3f, 0.0f);
+        Vector3 offset = new Vector3(0.0f, 1.5f, 0.0f);
         if (Physics.Linecast(transform.position + offset, player.transform.position, out hit))
         {
             if (hit.transform.tag == "Player")

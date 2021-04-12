@@ -19,16 +19,25 @@ public class PlayerMovement : MonoBehaviour
     public float airControl = 0.5f;
 
     bool isGrounded;
+    bool movementDisabled;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameServices.moveController = this;
+
         controller = GetComponent<CharacterController>();
+        movementDisabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(movementDisabled)
+        {
+            return;
+        }
+
         bool isSprinting = Input.GetAxisRaw("Sprint") > 0;
         isGrounded = controller.isGrounded;
 
@@ -76,5 +85,15 @@ public class PlayerMovement : MonoBehaviour
         {
             velocityY = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }      
+    }
+
+    public void DisableMovement()
+    {
+        movementDisabled = true;
+    }
+
+    public void EnableMovement()
+    {
+        movementDisabled = false;
     }
 }

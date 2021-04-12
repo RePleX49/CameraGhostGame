@@ -299,6 +299,16 @@ PrefabInstance:
       propertyPath: exposureDuration
       value: 1.65
       objectReference: {fileID: 0}
+    - target: {fileID: 5928122811006108659, guid: 4b1b1b7cc07c65e4d88ea59a3bf9ad20,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928122811006108659, guid: 4b1b1b7cc07c65e4d88ea59a3bf9ad20,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b1b1b7cc07c65e4d88ea59a3bf9ad20, type: 3}
 --- !u!1 &61262178

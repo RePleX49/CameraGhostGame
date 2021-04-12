@@ -2181,7 +2181,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 15d4d25dbfc5c57439113fb5fdc92fdd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2d8b5d9845998d0498f1470c7a4d1193, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -34035,8 +34035,8 @@ MonoBehaviour:
   Player: {fileID: 5079531563661471999}
   currentCamera: {fileID: 0}
   altCamera: {fileID: 0}
-  dimensionCamRenderer: {fileID: 0}
   cameraMesh: {fileID: 5802991498478432712}
+  cameraAnimator: {fileID: 0}
   verticalEquipOffset: 5
   mouseSensitivity: 1
   maxLookUp: 90
@@ -36053,6 +36053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 12
+  sprintSpeed: 15
   velocitySmoothTime: 0.2
   gravity: -20
   jumpHeight: 3

@@ -10,7 +10,7 @@ public class ResourceManager
     //float sanityDrainRateNormal = 0.2f;
     //float sanityDrainRateGhost = 0.4f;
 
-    int moneyBalance = 0;
+    int pillsCount = 0;
 
     public ResourceManager()
     {
@@ -18,7 +18,7 @@ public class ResourceManager
         Debug.Log("Would load save data in resource manager here");
     }
 
-    public void Update(float normalRate, float ghostRate)
+    public void Update(float rechargeRate, float ghostRate)
     {
         if (currentSanity <= 0.0f)
         {
@@ -30,14 +30,14 @@ public class ResourceManager
 
         if(GameServices.cameraController.inRealLayer)
         {
-            drainRate = normalRate;
+            drainRate = -rechargeRate;
         }
         else
         {
             drainRate = ghostRate;
         }
 
-        currentSanity -= drainRate * Time.deltaTime;    
+        currentSanity = Mathf.Clamp(currentSanity - drainRate * Time.deltaTime, 0.0f, maxSanity);  
     }
 
     public void ChangeSanity(float changeValue)
@@ -53,18 +53,5 @@ public class ResourceManager
     public float GetSanityPercentage()
     {
         return currentSanity / maxSanity;
-    }
-
-    public bool ChangeMoney(int changeAmount)
-    {
-        if(moneyBalance + changeAmount < 0)
-        {
-            return false;
-        }
-        else
-        {
-            moneyBalance += changeAmount;
-            return true;
-        }
     }
 }
