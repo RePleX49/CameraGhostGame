@@ -14,11 +14,13 @@ public class InputModeManager : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        GameServices.moveController.DisableMovement();
     }
 
     public void SwitchInputModeGame()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        GameServices.moveController.EnableMovement();
     }
 }
