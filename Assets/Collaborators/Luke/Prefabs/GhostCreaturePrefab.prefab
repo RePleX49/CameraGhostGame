@@ -294,8 +294,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0.069496945
     - serializedVersion: 3
-      time: 0.2899766
-      value: 0.28411943
+      time: 0.28474283
+      value: 0.3615883
       inSlope: -1.1615484
       outSlope: -1.1615484
       tangentMode: 0
@@ -999,7 +999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6190525769127050717
 Transform:
   m_ObjectHideFlags: 0

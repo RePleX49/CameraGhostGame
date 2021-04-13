@@ -65,20 +65,33 @@ public class GhostBehavior : MonoBehaviour
             player = GameServices.cameraController.gameObject;
         }
 
-        if(Vector3.Distance(player.transform.position, transform.position) < 10f)
+        RaycastHit hit;
+        Vector3 rayDirection = player.transform.position - transform.position;
+
+        if ((Vector3.Angle(rayDirection, transform.forward)) <= 90 * 0.5f)
+        {
+            // Detect if player is within the field of view
+            if (Physics.Raycast(transform.position, rayDirection, out hit, 40f))
+            {
+                DetectPlayer();
+            }
+            else
+            {
+                UndetectPlayer();
+            }
+        }
+
+        if (Vector3.Distance(player.transform.position, transform.position) < 10f)
         {
             GameServices.gameCycleManager.BeingHunted2();
-            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
         }
         else if(Vector3.Distance(player.transform.position, transform.position) < 20f)
         {
             GameServices.gameCycleManager.BeingHunted1();
-            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
         }
         else
         {
             GameServices.gameCycleManager.ResetDrainRate();
-            Debug.Log(GameServices.gameCycleManager.sanityDrainRateGhost);
         }
 
         // if the ghost is alert but doesn't see the player, start decrementing its memory so that it can eventually forget about the player
@@ -94,7 +107,7 @@ public class GhostBehavior : MonoBehaviour
             // sending a raycast from ghost to player... if it hits, it stuns
             // we use a raycast to ensure that there is no wall or object between the ghost and the player
             Vector3 offset = new Vector3(0.0f, 1.3f, 0.0f); // this offset is to just match where the "eyes" of the ghost would be 
-            RaycastHit hit;
+            //RaycastHit hit;
             if (Physics.Linecast(transform.position + offset, player.transform.position, out hit))
             {
                 if(hit.transform.tag == "Player")

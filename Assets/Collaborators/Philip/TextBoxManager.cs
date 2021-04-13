@@ -126,7 +126,7 @@ public class TextBoxManager : MonoBehaviour
         }
         else if(talkingID == 2)
         {
-            text.alignment = TextAlignmentOptions.Left;
+            text.alignment = TextAlignmentOptions.TopLeft;
             personTalkingBox.gameObject.SetActive(true);
             personTalking.text = "CECIL";
         }
