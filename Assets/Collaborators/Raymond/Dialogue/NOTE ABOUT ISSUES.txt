@@ -1,0 +1,6 @@
+-Currently, the portals don't appear under the "Appear" or "Disappear" tab in the DisappearParent.
+
+-Trying to change the order seems to do nothing either. For the added dialogue boxes,
+right now they are still unable to play but I'm assuming that's because of the current array set up
+in the Event Manager. I didn't change just because I tried to previously and it gave me errors,
+so it is currently still at 7, while there are 9 textBoxManagers in the scene.
