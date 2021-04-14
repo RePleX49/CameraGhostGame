@@ -35,6 +35,8 @@ public class CameraController : MonoBehaviour
 
     const int alternateLayer = 12;
 
+    public bool hasCamera = false;
+
     private void Awake()
     {
         GameServices.cameraController = this;
@@ -81,7 +83,7 @@ public class CameraController : MonoBehaviour
         }
         */
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q) && hasCamera)
         {
             if(isEquipped)
             {

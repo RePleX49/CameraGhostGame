@@ -1,5 +1,4 @@
-2"Nice you found a power cell for the generator."
-1"What's inside of this?"
-2"I'd have to write a whole textbook to explain that to you."
-1"Ok fine, I'll ask you later. So how do I use it?"
-2"Just find the generator, pop that in, and you're green."
+2“This should be useful for when you try turning on the power generator.” 
+1“Care to explain what’s inside of this thing?”
+2“Do you want to listen to a 6 hour science lecture or do you want to get out of this laboratory?” 
+1"Touché."

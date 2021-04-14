@@ -1,7 +1,3 @@
 2“You did it! Although I should expect nothing less from my best friend.” 
 1“Is the door open now?”
-2“Not sure, actually. You should go and check.” 
-1“Shouldn’t you be able to check from the control room you’re in?” 
-2“Mmmmmmmmm... nope!”
-2“I make interdimensional portals for a living, not door-lock-checkers.” 
-2“Now go get em, tiger!” 
+2“I’m not too sure, actually. You should go and check.” 
