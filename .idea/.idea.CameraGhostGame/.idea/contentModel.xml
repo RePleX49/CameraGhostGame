@@ -763,12 +763,16 @@
               <e p="GameInitializer.cs" t="Include" />
               <e p="GameServices.cs" t="Include" />
               <e p="Managers" t="Include">
+                <e p="FindLevelEvent.cs" t="Include" />
                 <e p="GameCycleManager.cs" t="Include" />
+                <e p="InputModeManager.cs" t="Include" />
+                <e p="LevelEvent.cs" t="Include" />
                 <e p="ResourceManager.cs" t="Include" />
               </e>
               <e p="PlayerUI.cs" t="Include" />
               <e p="PortalController.cs" t="Include" />
               <e p="Save System" t="Include">
+                <e p="ByteSerializer.cs" t="Include" />
                 <e p="SerializationTest.cs" t="Include" />
               </e>
               <e p="ScreenshotScript.cs" t="Include" />
@@ -776,6 +780,7 @@
             <e p="Shaders" t="Include">
               <e p="AS_GhostPortal.shader" t="Include" />
               <e p="DimensionCamera.shader" t="Include" />
+              <e p="TeleportShader.shader" t="Include" />
             </e>
           </e>
           <e p="Philip" t="Include">
@@ -790,6 +795,12 @@
                 <e p="Text7 - Cecil.txt" t="Include" />
                 <e p="Text999 - Map.txt" t="Include" />
               </e>
+              <e p="Section2" t="Include">
+                <e p="S2_FirstGenerator.txt" t="Include" />
+                <e p="S2_GetPowerCell.txt" t="Include" />
+                <e p="S2_Intro.txt" t="Include" />
+                <e p="S2_VaultDialogue.txt" t="Include" />
+              </e>
             </e>
             <e p="GhostBehavior.cs" t="Include" />
             <e p="Section1Events.cs" t="Include" />
@@ -798,6 +809,18 @@
               <e p="IntroText2.txt" t="Include" />
             </e>
             <e p="TextBoxManager.cs" t="Include" />
+          </e>
+          <e p="Raymond" t="Include">
+            <e p="Dialogue" t="Include">
+              <e p="NOTE ABOUT ISSUES.txt" t="Include" />
+              <e p="Text1- Player Intro.txt" t="Include" />
+              <e p="Text2- Tube Warning.txt" t="Include" />
+              <e p="Text3- Checking Tube.txt" t="Include" />
+              <e p="Text5Alt- .txt" t="Include" />
+              <e p="Text7ALT- Cecil.txt" t="Include" />
+              <e p="Text8- Coil.txt" t="Include" />
+              <e p="Text9- Placing Coil.txt" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Editor" t="Include">
@@ -832,6 +855,7 @@
             <e p="GhostManager.cs" t="Include" />
             <e p="PanButton.cs" t="Include" />
           </e>
+          <e p="MenuController.cs" t="Include" />
           <e p="ObjectScript.cs" t="Include" />
           <e p="OpacityController.cs" t="Include" />
           <e p="OpenNCloseScript.cs" t="Include" />
