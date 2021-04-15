@@ -41,6 +41,7 @@ public class GhostBehavior : MonoBehaviour
     public AudioClip breath1;
     public AudioClip breath2;
     public AudioClip breath3;
+    public AudioClip alertNoise;
     public AudioClip whisper;
 
     void Start()
@@ -112,6 +113,7 @@ public class GhostBehavior : MonoBehaviour
             {
                 if(hit.transform.tag == "Player")
                 {
+                    GameServices.cameraController.UseFlash();
                     StartCoroutine(Stun());
                     stunned = true;
                 }
@@ -204,7 +206,9 @@ public class GhostBehavior : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 offset = new Vector3(0.0f, 1.5f, 0.0f);
-        if (Physics.Linecast(transform.position + offset, player.transform.position, out hit))
+
+        // (1 << 12) is a bit layer mask for Alternate layer
+        if (Physics.Linecast(transform.position + offset, player.transform.position, out hit, (1 << 12)))
         {
             if (hit.transform.tag == "Player")
             {

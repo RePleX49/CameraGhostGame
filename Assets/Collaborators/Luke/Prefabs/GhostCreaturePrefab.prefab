@@ -231,6 +231,7 @@ MonoBehaviour:
   breath1: {fileID: 8300000, guid: 3028b2e36e1bb4cd2ab05ac96c11a3a1, type: 3}
   breath2: {fileID: 8300000, guid: c1b16b51b4db34cffa597b12bf092595, type: 3}
   breath3: {fileID: 8300000, guid: 4e8adbc74e655402ba6590ebab2df7c1, type: 3}
+  alertNoise: {fileID: 8300000, guid: 9b98ff0364e20a8419cc37aa4970d432, type: 3}
   whisper: {fileID: 8300000, guid: 53eb5697837cf465d9f2b2003c514f2d, type: 3}
 --- !u!195 &6190525768657615227
 NavMeshAgent:

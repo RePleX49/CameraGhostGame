@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class CameraController : MonoBehaviour
 
     [SerializeField]
     Animator cameraAnimator;
+
+    [SerializeField]
+    AudioSource portalEntryAudio;
 
     public float verticalEquipOffset;
     float initialEquipY;
@@ -36,6 +40,10 @@ public class CameraController : MonoBehaviour
     const int alternateLayer = 12;
 
     public bool hasCamera = false;
+    public float flashCooldown = 3.0f;
+    float flashCharge = 0.0f;
+
+    public Image flashCooldownImage;
 
     private void Awake()
     {
@@ -73,6 +81,12 @@ public class CameraController : MonoBehaviour
         altCamera.transform.localRotation = Quaternion.Euler(lookUpRotation, 0.0f, 0.0f);
         Player.Rotate(Vector3.up * mouseX);
 
+        if(flashCharge < flashCooldown)
+        {
+            flashCooldownImage.fillAmount = flashCharge / flashCooldown;
+            flashCharge += Time.deltaTime;          
+        }
+
         if (isDisabled)
             return;
 
@@ -99,6 +113,8 @@ public class CameraController : MonoBehaviour
     // Same as "switching dimensions"
     public void SwapCameras()
     {
+        portalEntryAudio.Play();
+
         // Swap references for current and altCamera
         Camera temp = currentCamera;
         currentCamera = altCamera;
@@ -126,6 +142,11 @@ public class CameraController : MonoBehaviour
             //GameServices.audioController.StopAmbientNoise(); // Play Normal Dimension Sounds
             GameServices.audioController.SwitchToNormalAudio();
         }
+    }
+
+    public void UseFlash()
+    {
+        flashCharge = 0.0f;
     }
 
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)
@@ -176,7 +197,8 @@ public class CameraController : MonoBehaviour
 
     public bool IsCameraReady()
     {
-        return isEquipped && !isTransitioning;
+        // return isEquipped && !isTransitioning;
+        return flashCharge >= flashCooldown && hasCamera;
     }
 
     public void DisableCamera()
