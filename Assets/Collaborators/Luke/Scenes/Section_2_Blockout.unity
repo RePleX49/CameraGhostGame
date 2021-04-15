@@ -25710,7 +25710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05fede52dae1c343bfbd8772c47fdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityRechargeRate: 2
+  sanityRechargeRate: 4
   sanityDrainRateGhost: 0.6
 --- !u!4 &1184780755
 Transform:
@@ -42748,7 +42748,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: de8f31532b302c0459a2e8768b585b32,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.32
+      value: 1.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de8f31532b302c0459a2e8768b585b32,
         type: 3}

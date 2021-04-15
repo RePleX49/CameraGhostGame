@@ -12,13 +12,12 @@ public class FindLevelEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thisLevelEvent = GetComponent<LevelEvent>();
-        
-        
+             
     }
 
     public void SearchForNext()
     {
+        thisLevelEvent = GetComponent<LevelEvent>();
         GameObject nextEventObject = GameObject.Find(gameObjectName);
         Debug.Log(nextEventObject);
         LevelEvent nextLevelEvent = nextEventObject.GetComponent<LevelEvent>();

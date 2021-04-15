@@ -39,6 +39,11 @@ public class LevelEvent : MonoBehaviour
         }
     }
 
+    public void Initialize()
+    {
+        
+    }
+
     public void PlayLevelEvent()
     {
         PlayNextEvent();

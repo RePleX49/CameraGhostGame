@@ -11,5 +11,11 @@ public class LevelEventsInitializer : MonoBehaviour
         {
             findEvent.SearchForNext();
         }
+
+        //LevelEvent[] levelEvents = FindObjectsOfType<LevelEvent>();
+        //foreach(LevelEvent levelEvent in levelEvents)
+        //{
+        //    levelEvent.Initialize();
+        //}
     }
 }

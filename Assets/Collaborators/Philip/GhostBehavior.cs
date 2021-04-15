@@ -8,6 +8,8 @@ public class GhostBehavior : MonoBehaviour
     // NECESSARY COMPONENT FOR PATH FINDING
     public NavMeshAgent agent;
 
+    public float chaseSpeed;
+
     // WE USE A VECTOR3 ARRAY TO STORE AND CYCLE THROUGH DIFFERENT LOCATIONS ON ITS PATROLLING ROUTE
     public Vector3[] spots;
     public int currentSpotNumber;       // mostly used for index of spots array
