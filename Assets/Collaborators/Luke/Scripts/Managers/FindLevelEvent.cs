@@ -13,6 +13,15 @@ public class FindLevelEvent : MonoBehaviour
     void Start()
     {
         thisLevelEvent = GetComponent<LevelEvent>();
-        thisLevelEvent.nextEvent = GameObject.Find(gameObjectName).GetComponent<LevelEvent>();
+        
+        
+    }
+
+    public void SearchForNext()
+    {
+        GameObject nextEventObject = GameObject.Find(gameObjectName);
+        Debug.Log(nextEventObject);
+        LevelEvent nextLevelEvent = nextEventObject.GetComponent<LevelEvent>();
+        thisLevelEvent.nextEvent = nextLevelEvent;
     }
 }

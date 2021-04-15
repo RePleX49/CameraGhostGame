@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     AudioSource portalEntryAudio;
 
+    [SerializeField]
+    GameObject flashLight;
+
     public float verticalEquipOffset;
     float initialEquipY;
 
@@ -147,6 +150,13 @@ public class CameraController : MonoBehaviour
     public void UseFlash()
     {
         flashCharge = 0.0f;
+        flashLight.SetActive(true);
+        Invoke("TurnOffFlash", 0.1f);
+    }
+
+    void TurnOffFlash()
+    {
+        flashLight.SetActive(false);
     }
 
     IEnumerator SmoothEquip(Transform target, float initialOffset, float offsetScale)

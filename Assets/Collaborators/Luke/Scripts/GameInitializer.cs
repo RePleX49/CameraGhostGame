@@ -12,6 +12,6 @@ public class GameInitializer : MonoBehaviour
     void Start()
     {
         Instantiate(PlayerPrefab, transform.position, transform.rotation);
-        SceneManager.LoadScene(alternateSceneBuildIndex, LoadSceneMode.Additive);
+        SceneManager.LoadScene(alternateSceneBuildIndex, LoadSceneMode.Additive);       
     }
 }

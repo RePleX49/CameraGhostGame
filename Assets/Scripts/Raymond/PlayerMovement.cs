@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 12f;
     public float sprintSpeed = 15f;
     public float velocitySmoothTime = 0.2f;
+
+    public AudioSource footstepAudio;
+    public float delayBetweenSteps = 1.0f;
     Vector3 velocity;
     Vector3 currentVelocity;
 
@@ -21,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool movementDisabled;
 
+    bool isWalking;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller = GetComponent<CharacterController>();
         movementDisabled = false;
+        isWalking = false;
     }
 
     // Update is called once per frame
@@ -63,6 +69,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = transform.right * x + transform.forward * z;
         targetVelocity.Normalize();
 
+        //if(targetVelocity.magnitude > 0 && !isWalking)
+        //{
+        //    isWalking = true;
+        //    InvokeRepeating("PlaySteps", 0.0f, delayBetweenSteps);
+        //}
+        //else if(targetVelocity.magnitude == 0)
+        //{
+        //    CancelInvoke("PlaySteps");
+        //    isWalking = false;
+        //}
+
         float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
         targetVelocity *= moveSpeed;
         if (!isGrounded)
@@ -95,5 +112,10 @@ public class PlayerMovement : MonoBehaviour
     public void EnableMovement()
     {
         movementDisabled = false;
+    }
+
+    void PlaySteps()
+    {
+        footstepAudio.Play();
     }
 }

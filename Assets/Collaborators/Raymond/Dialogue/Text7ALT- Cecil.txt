@@ -1,11 +1,11 @@
-1“Guess the only way forward is down”
+1“Guess the only way forward is down.”
 1“Wait, is that a walkie?”
 0*KSSSSHHHHHHHHHHHH*
 1“Hello? Hello, is anyone there?”
-2“NAME is that you?”
+2“Ah! There you are.”
 1“Cecil?”
-2“Yep. It’s me. I see you made it”
+2“Yep. It’s me. I see you made it.”
 1“Where are you?”
-2“I understand things are confusing right now.”
+2“I understand things are confusing.”
 2“Right now, I need you to take the elevator and come find me. Ok?”
 1"......Ok."
