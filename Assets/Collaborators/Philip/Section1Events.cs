@@ -50,7 +50,7 @@ public class Section1Events : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         playerMovement = GameObject.Find("Player(Clone)").GetComponent<PlayerMovement>();
         cameraController = GameServices.cameraController;
-        ghostCameraObject = GameObject.Find("Player(Clone)/Camera_DimensionCam");
+        ghostCameraObject = GameServices.cameraController.GetCameraMesh();
         cameraController.DisableCamera();
         playerMovement.enabled = false;
         text1.SetActive(true);

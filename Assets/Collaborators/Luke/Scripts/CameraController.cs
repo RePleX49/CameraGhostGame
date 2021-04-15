@@ -15,6 +15,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject cameraMesh;
 
+    [SerializeField]
+    Animator cameraAnimator;
+
     public float verticalEquipOffset;
     float initialEquipY;
 
@@ -71,10 +74,12 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
+        /*
         if(Input.GetKeyDown(KeyCode.E))
         {
             SwapCameras();
         }
+        */
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -144,23 +149,26 @@ public class CameraController : MonoBehaviour
 
     public void EquipCamera()
     {
-        if(isTransitioning)
+        if(cameraAnimator.IsInTransition(0))
         {
             return;
         }
 
-        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
+        // StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY - verticalEquipOffset, verticalEquipOffset));
+        cameraAnimator.SetTrigger("Equip");
+        
         isEquipped = true;
     }
 
     public void UnequipCamera()
     {
-        if (isTransitioning)
+        if (cameraAnimator.IsInTransition(0))
         {
             return;
         }
 
-        StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
+        //StartCoroutine(SmoothEquip(cameraMesh.transform, initialEquipY, -verticalEquipOffset));
+        cameraAnimator.SetTrigger("Unequip");
         isEquipped = false;
     }
 
@@ -194,5 +202,10 @@ public class CameraController : MonoBehaviour
     float EaseInOut(float time)
     {
         return -(Mathf.Cos(Mathf.PI * time) - 1) / 2;
+    }
+
+    public GameObject GetCameraMesh()
+    {
+        return cameraMesh;
     }
 }

@@ -1,0 +1,7 @@
+1“The door is locked.”
+2“That’s strange. I only keep that door locked if we leak poisonous gas on that floor!” 
+1“Very funny, Cecil. So how can I open this door?”
+2“Wow you didn’t fall for that one at all, huh?”
+1“I've known you how long now? Did you really think I wouldn't catch that?”
+2“Anyways, you’ll probably have to find the power generator on this floor and turn it on.”
+2“It’s somewhere in the area right of the vault door.”

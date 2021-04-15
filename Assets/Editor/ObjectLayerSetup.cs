@@ -22,6 +22,13 @@ public class ObjectLayerSetup : EditorWindow
         GetWindow(typeof(ObjectLayerSetup));
     }
 
+    [MenuItem("Tools/Teleport to Level End")]
+    private static void GetToLevelEnd()
+    {
+        GameServices.cameraController.gameObject.transform.position = GameObject.Find("LevelEnd").transform.position;
+        Debug.Log("Should teleport");
+    }
+
     private void OnGUI()
     {
         GUILayout.Label("Set Layer Of Scene Objects", EditorStyles.boldLabel);
@@ -32,6 +39,7 @@ public class ObjectLayerSetup : EditorWindow
         {
             SetLayers();
         }
+        
     }
 
     private void SetLayers()

@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Collaborators/Raymond/LabEntranceBlockoutREVISE.unity
+    guid: 8d73a17889e9dd1458ab964d4b1a3a4e
+  - enabled: 1
+    path: Assets/Collaborators/Raymond/LabEntranceBlockout_AlternateREVISE.unity
+    guid: 1aaee4511a5fccd4cbc8705ecac9ba28
+  - enabled: 0
     path: Assets/Collaborators/Luke/Scenes/LabEntranceBlockout.unity
     guid: b9a75334dc43e9c419e9150880a99ab0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Collaborators/Luke/Scenes/LabEntranceBlockout_Alternate.unity
     guid: 894e7e8d1a8383440837807fa6e1dc58
   - enabled: 1

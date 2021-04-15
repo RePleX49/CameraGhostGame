@@ -1,0 +1,11 @@
+2“Great. You reached the core of my laboratory.”
+2“Now all you gotta do is open that vault door in front of you and head on through.” 
+1“Gee, Cecil. I know we’re friends and all but don’t ya think ordering me around on a loudspeaker is a bit cold?”
+2“You want me to hire a receptionist for you?”
+1“Well, it doesn’t have to be a receptionist, but having one of your assistants welcome me in would have been nice.” 
+2“D’aww. Feeling a bit lonely out there?”
+1“I guess I just expected to meet somebody by now.” 
+2“Maybe you will meet somebody on this floor.” 
+2“Although I’d actually suggest turning tail and running away if you make contact with one of them.” 
+1“By them I hope you’re just talking about your assistants.”
+2“Good one.” 

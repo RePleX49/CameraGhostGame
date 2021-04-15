@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameCycleManager : MonoBehaviour
 {
-    public float sanityDrainRateNormal = 0.2f;
+    public float sanityRechargeRate = 0.2f;
     public float sanityDrainRateGhost = 0.4f;
 
     bool inDialogue;
@@ -25,7 +25,7 @@ public class GameCycleManager : MonoBehaviour
             return;
         }
 
-        GameServices.playerStats.Update(sanityDrainRateNormal, sanityDrainRateGhost);
+        GameServices.playerStats.Update(sanityRechargeRate, sanityDrainRateGhost);
     }
 
     public void PauseUpdate()
