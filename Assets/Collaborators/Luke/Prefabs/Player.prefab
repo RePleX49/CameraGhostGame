@@ -2637,8 +2637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685a6658acccf0841a94c7388395cf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 12
-  sprintSpeed: 18
+  walkSpeed: 10
+  sprintSpeed: 12.5
   velocitySmoothTime: 0.125
   footstepAudio: {fileID: 6098362092273365286}
   delayBetweenSteps: 0.55
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   maxLookUp: 90
   minLookDown: -90
   hasCamera: 0
-  flashCooldown: 3
+  flashCooldown: 6.5
   flashCooldownImage: {fileID: 8201080577895516524}
 --- !u!1 &5494656267664330247
 GameObject:
