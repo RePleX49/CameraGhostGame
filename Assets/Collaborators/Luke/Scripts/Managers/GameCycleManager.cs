@@ -15,6 +15,7 @@ public class GameCycleManager : MonoBehaviour
         inDialogue = false;
         GameServices.gameCycleManager = this;
         GameServices.Initialize();
+        GameServices.playerStats.Initialize();
     }
 
     // Update is called once per frame

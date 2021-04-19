@@ -74,6 +74,17 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GameServices.playerStats.AddPills();
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GameServices.playerStats.SavePlayerData();
+            Debug.Log("Saved Data");
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
