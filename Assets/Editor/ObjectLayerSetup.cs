@@ -29,6 +29,15 @@ public class ObjectLayerSetup : EditorWindow
         Debug.Log("Should teleport");
     }
 
+    [MenuItem("Tools/Refresh Save")]
+    private static void RefreshSaveFile()
+    {
+        string path = System.IO.Path.Combine(Application.dataPath, "playerData.txt");
+        UnityEditor.FileUtil.DeleteFileOrDirectory(path);
+        AssetDatabase.Refresh();
+        Debug.Log("Save Data Reset");
+    }
+
     private void OnGUI()
     {
         GUILayout.Label("Set Layer Of Scene Objects", EditorStyles.boldLabel);
