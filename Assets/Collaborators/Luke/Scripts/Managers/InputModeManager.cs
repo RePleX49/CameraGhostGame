@@ -2,25 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputModeManager : MonoBehaviour
+public static class InputModeManager
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    public void SwitchInputModeMenu()
+    public static void SwitchInputModeMenu()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         GameServices.moveController.DisableMovement();
+        GameServices.cameraController.DisableControl();
     }
 
-    public void SwitchInputModeGame()
+    public static void SwitchInputModeGame()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         GameServices.moveController.EnableMovement();
+        GameServices.cameraController.EnableControl();
     }
 }

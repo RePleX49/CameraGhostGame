@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Collaborators/Luke/Scenes/Section_2_Blockout_Alternate.unity
     guid: 0febd3b0e9986844f8d64deb8423ecd4
+  - enabled: 1
+    path: Assets/Scenes/Steph_Test_Scenes/MainMenu.unity
+    guid: 75ccf8a1c541dbf45a7f4fd1f7c173fe
   m_configObjects: {}

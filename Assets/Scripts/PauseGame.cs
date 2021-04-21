@@ -12,36 +12,32 @@ public class PauseGame : MonoBehaviour
     public GameObject controlScreen;
     public GameObject soundScreen;
     
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
         Pause();
     }
+
     void Pause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseScreen.activeSelf == false)
+            if (Time.timeScale != 0 && pauseScreen.activeSelf == false)
             {
                 pauseScreen.SetActive(true);
                 paused = true;
                 pauseScreenActive = true;
 
                 Time.timeScale = 0;
+                InputModeManager.SwitchInputModeMenu();
             }
             else
             {
-                unpause();
+                UnPause();              
             }
         }
     }
 
-    void unpause()
+    void UnPause()
     {
         if (pauseScreen.activeSelf == true)
         {
@@ -52,13 +48,14 @@ public class PauseGame : MonoBehaviour
             controlScreen.SetActive(false);
 
             Time.timeScale = 1;
+            InputModeManager.SwitchInputModeGame();
         }
     }
     
     //button methods
     public void Resume()
     {
-        unpause();
+        UnPause();
     }
 
     public void OpenOptions()
@@ -75,6 +72,8 @@ public class PauseGame : MonoBehaviour
     
     public void MainMenu()
     {
+        // Reset time scale so there are no issues when loading scene from main menu
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 

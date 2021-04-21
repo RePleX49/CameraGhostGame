@@ -61,6 +61,9 @@ public class TextBoxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) // game is paused so don't update
+            return;
+
         if (!goText)
         {
             Scroll();

@@ -37,6 +37,7 @@ public class CameraController : MonoBehaviour
     bool isDisabled = false;
     bool isEquipped = false;
     bool isTransitioning = false;
+    bool isControlDisabled = false;
 
     public bool inRealLayer { get; private set; }
 
@@ -84,6 +85,9 @@ public class CameraController : MonoBehaviour
             GameServices.playerStats.SavePlayerData();
             Debug.Log("Saved Data");
         }
+
+        if (isControlDisabled)
+            return;
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
@@ -222,8 +226,19 @@ public class CameraController : MonoBehaviour
         return flashCharge >= flashCooldown && hasCamera;
     }
 
+    public void DisableControl()
+    {
+        isControlDisabled = true;
+    }
+
+    public void EnableControl()
+    {
+        isControlDisabled = false;
+    }
+
     public void DisableCamera()
     {
+        UnequipCamera();
         isDisabled = true;
     }
 
