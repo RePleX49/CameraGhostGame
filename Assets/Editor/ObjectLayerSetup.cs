@@ -32,9 +32,7 @@ public class ObjectLayerSetup : EditorWindow
     [MenuItem("Tools/Refresh Save")]
     private static void RefreshSaveFile()
     {
-        string path = System.IO.Path.Combine(Application.dataPath, "playerData.txt");
-        UnityEditor.FileUtil.DeleteFileOrDirectory(path);
-        AssetDatabase.Refresh();
+        PlayerSaveData.DeletePlayerSave();
         Debug.Log("Save Data Reset");
     }
 

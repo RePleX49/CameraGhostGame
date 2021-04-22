@@ -11,13 +11,38 @@ public class MenuController : MonoBehaviour
     private Boolean newGame;
     public GameObject mainMenu;
     public GameObject startGame;
+    public GameObject confirmNewGame;
     public Animator cameraAC;
     public GameObject soundMenu;
     public Button continueButton;
 
+    PlayerSaveData saveData;
+
     void Start()
     {
-        mainMenu.SetActive(true);
+        saveData = new PlayerSaveData();
+
+        if (File.Exists(Path.Combine(Application.dataPath, "playerData.txt")))
+        {
+            // set data of saveData from available file
+            saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
+        }
+        else
+        {
+            // make file with empty save
+            PlayerSaveData.WriteString("playerData.txt", saveData.GetString());
+        }
+
+        if (mainMenu)
+        {
+            mainMenu.SetActive(true);
+
+            if(saveData.isEmptySave)
+            {
+                continueButton.interactable = false;
+            }          
+        }
+            
         newGame = false;
         startGame.SetActive(false);
     }
@@ -38,18 +63,26 @@ public class MenuController : MonoBehaviour
     //start a new game
     public void NewGame()
     {
-        newGame = true;
+        PlayerSaveData.DeletePlayerSave();
+        saveData.isEmptySave = false;
+        PlayerSaveData.WriteString(PlayerSaveData.saveFileName, saveData.GetString());
         mainMenu.SetActive(false);
+        CloseConfirmNewGame();
         cameraAC.SetBool("newGameAnim", true);
+        Invoke("SetStartGameActive", 1.0f);
+    }
+
+    void SetStartGameActive()
+    {
         startGame.SetActive(true);
+        newGame = true;
     }
 
     //start from last save point
     public void Retry()
     {
         // Load section 1 or section 2 based on saved boolean
-        PlayerSaveData saveData = new PlayerSaveData();
-        saveData.SetFromString(ReadTextFile("","playerData.txt"));
+        
 
         if(saveData.clearedSection1 == true)
         {
@@ -73,6 +106,16 @@ public class MenuController : MonoBehaviour
         soundMenu.SetActive(false);
     }
 
+    public void OpenConfirmNewGame()
+    {
+        confirmNewGame.SetActive(true);
+    }
+
+    public void CloseConfirmNewGame()
+    {
+        confirmNewGame.SetActive(false);
+    }
+
     //exit to main menu
     public void Exit()
     {
@@ -82,27 +125,5 @@ public class MenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-    }
-
-    public string ReadTextFile(string filePath, string fileName)
-    {
-        var fileReader = new StreamReader(Application.dataPath + filePath + "/" + fileName);
-        var toReturn = "";
-        using (fileReader)
-        {
-            string line;
-            do
-            {
-                line = fileReader.ReadLine();
-                if (!string.IsNullOrEmpty(line))
-                {
-                    toReturn += line + '\n';
-                }
-            } while (line != null);
-
-            fileReader.Close();
-        }
-
-        return toReturn;
     }
 }

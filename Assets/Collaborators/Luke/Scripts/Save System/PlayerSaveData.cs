@@ -15,6 +15,16 @@ public class PlayerSaveData : ISaveable
 {
     public bool clearedSection1;
     public int pillsCollected;
+    public bool isEmptySave;
+
+    public const string saveFileName = "playerData.txt";
+
+    public PlayerSaveData()
+    {
+        clearedSection1 = false;
+        pillsCollected = 0;
+        isEmptySave = true;
+    }
 
     public string GetString()
     {
@@ -23,6 +33,7 @@ public class PlayerSaveData : ISaveable
 
         bw.Write(clearedSection1);
         bw.Write(pillsCollected);
+        bw.Write(isEmptySave);
 
         ByteSerializer saveData = new ByteSerializer(ms.GetBuffer());
 
@@ -45,6 +56,7 @@ public class PlayerSaveData : ISaveable
 
         clearedSection1 = br.ReadBoolean();
         pillsCollected = br.ReadInt32();
+        isEmptySave = br.ReadBoolean();
 
         br.Close();
         ms.Close();
@@ -55,8 +67,58 @@ public class PlayerSaveData : ISaveable
     public int NumberOfBytes()
     {
         // 4 bytes for pillcount and 1 byte for section1 bool
-        return 4 + 1;
+        // 1 byte for isEmptySave bool
+        return 4 + 1 + 1;
     }
 
     public int Version => 1;
+
+    public static void DeletePlayerSave()
+    {
+        // Reset pills to 0
+        // Reset level clear flags to false
+
+        PlayerSaveData saveDataBuffer = new PlayerSaveData();
+        saveDataBuffer.SetFromString(ReadTextFile("", "playerData.txt"));
+        saveDataBuffer.clearedSection1 = false;
+        saveDataBuffer.pillsCollected = 0;
+        saveDataBuffer.isEmptySave = true;
+        WriteString("playerData.txt", saveDataBuffer.GetString());
+    }
+
+    public static void WriteString(string fileName, string data)
+    {
+        using (var outputFile = new StreamWriter(Path.Combine(Application.dataPath, fileName)))
+        {
+            outputFile.Write(data);
+        }
+    }
+
+    public static string ReadTextFile(string filePath, string fileName)
+    {
+        if(!File.Exists(Application.dataPath + filePath + "/" + fileName))
+        {
+            Debug.Log("Save file doesn't exist");
+            File.Create(Path.Combine(Application.dataPath, fileName));
+            Debug.Log("Made new save file");
+        }
+
+        var toReturn = "";
+        using (var fileReader = new StreamReader(Application.dataPath + filePath + "/" + fileName))
+        {
+            string line;
+            do
+            {
+                line = fileReader.ReadLine();
+                if (!string.IsNullOrEmpty(line))
+                {
+                    toReturn += line + '\n';
+                }
+            } while (line != null);
+
+            fileReader.Close();
+        }
+
+        return toReturn;
+    }
 }

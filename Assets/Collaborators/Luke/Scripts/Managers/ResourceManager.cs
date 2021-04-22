@@ -12,6 +12,7 @@ public class ResourceManager
     //float sanityDrainRateGhost = 0.4f;
 
     int pillsCount = 0;
+    public bool clearedSection1 = false;
 
     private static PlayerSaveData playerData;
 
@@ -31,40 +32,13 @@ public class ResourceManager
             Debug.LogWarning("No player save file was found");
         }
 
-        playerData.SetFromString(ReadTextFile("", "playerData.txt"));
+        playerData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
         Debug.Log("Pill Count: " + playerData.pillsCollected);
         pillsCount = playerData.pillsCollected;
+        clearedSection1 = playerData.clearedSection1;
     }
 
-    private void WriteString(string fileName, string data)
-    {
-        using (var outputFile = new StreamWriter(Path.Combine(Application.dataPath, fileName)))
-        {
-            outputFile.Write(data);
-        }
-    }
-
-    public string ReadTextFile(string filePath, string fileName)
-    {
-        var fileReader = new StreamReader(Application.dataPath + filePath + "/" + fileName);
-        var toReturn = "";
-        using (fileReader)
-        {
-            string line;
-            do
-            {
-                line = fileReader.ReadLine();
-                if (!string.IsNullOrEmpty(line))
-                {
-                    toReturn += line + '\n';
-                }
-            } while (line != null);
-
-            fileReader.Close();
-        }
-
-        return toReturn;
-    }
+    
 
     public void Update(float rechargeRate, float ghostRate)
     {
@@ -118,6 +92,7 @@ public class ResourceManager
     public void SavePlayerData()
     {
         playerData.pillsCollected = pillsCount;
-        WriteString("playerData.txt", playerData.GetString());
+        playerData.clearedSection1 = clearedSection1;
+        PlayerSaveData.WriteString("playerData.txt", playerData.GetString());
     }
 }

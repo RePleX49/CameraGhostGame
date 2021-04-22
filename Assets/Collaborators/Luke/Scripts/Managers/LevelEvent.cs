@@ -58,6 +58,13 @@ public class LevelEvent : MonoBehaviour
                 targetObject.SetActive(false);
                 break;
             case LevelEventType.LevelTransition:
+                // we are in Section 1 scene
+                if(SceneManager.GetActiveScene().buildIndex == 0)
+                {
+                    GameServices.playerStats.clearedSection1 = true;
+                    GameServices.playerStats.SavePlayerData();
+                }
+
                 StartCoroutine(TransitionLevel());
                 break;
             case LevelEventType.ChangeMaterial:
