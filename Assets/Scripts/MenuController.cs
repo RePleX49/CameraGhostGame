@@ -69,7 +69,7 @@ public class MenuController : MonoBehaviour
         mainMenu.SetActive(false);
         CloseConfirmNewGame();
         cameraAC.SetBool("newGameAnim", true);
-        Invoke("SetStartGameActive", 1.0f);
+        Invoke("SetStartGameActive", 3.0f);
     }
 
     void SetStartGameActive()
