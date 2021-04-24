@@ -46,6 +46,8 @@ public class GhostBehavior : MonoBehaviour
     public AudioClip alertNoise;
     public AudioClip whisper;
 
+    public Animator animator;
+
     void Start()
     {
         //cam = GameObject.Find("Player").GetComponent<CameraController>().currentCamera;
@@ -116,6 +118,7 @@ public class GhostBehavior : MonoBehaviour
                 if(hit.transform.tag == "Player")
                 {
                     GameServices.cameraController.UseFlash();
+                    animator.SetTrigger("Stun");
                     StartCoroutine(Stun());
                     stunned = true;
                 }
@@ -200,6 +203,7 @@ public class GhostBehavior : MonoBehaviour
     IEnumerator Stun()
     {
         yield return new WaitForSeconds(stunTime);
+        animator.SetTrigger("Walk");
         stunned = false;
     }
 
