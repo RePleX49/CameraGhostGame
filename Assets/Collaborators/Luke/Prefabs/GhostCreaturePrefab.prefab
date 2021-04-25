@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 453060760714799447}
   - component: {fileID: 6190525768657615227}
   - component: {fileID: 453060760714799451}
+  - component: {fileID: 4288463842360167180}
   m_Layer: 12
   m_Name: GhostCreaturePrefab
   m_TagString: Untagged
@@ -266,7 +267,8 @@ AudioSource:
   m_GameObject: {fileID: 453060760714799448}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -362,6 +364,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4288463842360167180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453060760714799448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f759cac3c7d1a84c94deb781dc6a30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNormalSource: 0
 --- !u!1 &497236298886647327
 GameObject:
   m_ObjectHideFlags: 0

@@ -2795,7 +2795,8 @@ AudioSource:
   m_GameObject: {fileID: 313988741}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7304121350528784475, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 2d8b5d9845998d0498f1470c7a4d1193, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3117,6 +3118,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019050544}
     m_Modifications:
+    - target: {fileID: 1039833132691459937, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: isNormalSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8498553162964845518, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
       propertyPath: m_Layer
@@ -13054,6 +13060,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1039833132691459937, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: isNormalSource
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8498553162964845518, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
       propertyPath: m_Layer

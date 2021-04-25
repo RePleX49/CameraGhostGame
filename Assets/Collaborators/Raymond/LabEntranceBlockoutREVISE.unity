@@ -1934,12 +1934,13 @@ AudioSource:
   m_GameObject: {fileID: 148574900}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 47e21b37b042a0e4db105aa0c9fa1617, type: 3}
+  OutputAudioMixerGroup: {fileID: 7304121350528784475, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 4051c3efd13d6ba4e83eeab0ea623fd3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.79
-  Loop: 0
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -13953,7 +13954,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh133688
+  m_Name: pb_Mesh43266
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17299,7 +17300,8 @@ AudioSource:
   m_GameObject: {fileID: 819129514}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 305458ce1a63c3c47ba054449b22dde5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -20491,7 +20493,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh134784
+  m_Name: pb_Mesh44368
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22467,7 +22469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh134530
+  m_Name: pb_Mesh44120
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26215,7 +26217,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh133470
+  m_Name: pb_Mesh43040
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26384,6 +26386,22 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 1489734264}
+    - target: {fileID: 482026476077231408, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 24.144533
+      objectReference: {fileID: 0}
+    - target: {fileID: 482026476077231408, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: MinDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 482026476077231408, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+        type: 2}
     - target: {fileID: 8498553164771252066, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
       propertyPath: m_Name
@@ -26432,7 +26450,7 @@ PrefabInstance:
     - target: {fileID: 8498553164771252095, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8498553164771252095, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
@@ -26568,7 +26586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh133700
+  m_Name: pb_Mesh43278
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -47820,6 +47838,12 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 1489734264}
+    - target: {fileID: 482026476077231408, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+        type: 2}
     - target: {fileID: 8498553164771252066, guid: a1a1146bdbb690a4d8d99e1d7dea46ca,
         type: 3}
       propertyPath: m_Name

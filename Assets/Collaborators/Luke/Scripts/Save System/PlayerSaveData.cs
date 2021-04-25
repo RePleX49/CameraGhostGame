@@ -16,14 +16,24 @@ public class PlayerSaveData : ISaveable
     public bool clearedSection1;
     public int pillsCollected;
     public bool isEmptySave;
+    public int masterVolume;
 
-    public const string saveFileName = "playerData.txt";
+    public const string saveFileName = "playerData.txt";   
 
     public PlayerSaveData()
     {
         clearedSection1 = false;
         pillsCollected = 0;
         isEmptySave = true;
+        masterVolume = 100;
+    }
+
+    public int NumberOfBytes()
+    {
+        // 4 bytes for pillcount and 1 byte for section1 bool
+        // 1 byte for isEmptySave bool
+        // 4 bytes for masterVolume setting
+        return 4 + 1 + 1 + 4;
     }
 
     public string GetString()
@@ -34,6 +44,7 @@ public class PlayerSaveData : ISaveable
         bw.Write(clearedSection1);
         bw.Write(pillsCollected);
         bw.Write(isEmptySave);
+        bw.Write(masterVolume);
 
         ByteSerializer saveData = new ByteSerializer(ms.GetBuffer());
 
@@ -57,18 +68,12 @@ public class PlayerSaveData : ISaveable
         clearedSection1 = br.ReadBoolean();
         pillsCollected = br.ReadInt32();
         isEmptySave = br.ReadBoolean();
+        masterVolume = br.ReadInt32();
 
         br.Close();
         ms.Close();
 
         return this;
-    }
-
-    public int NumberOfBytes()
-    {
-        // 4 bytes for pillcount and 1 byte for section1 bool
-        // 1 byte for isEmptySave bool
-        return 4 + 1 + 1;
     }
 
     public int Version => 1;
@@ -120,5 +125,12 @@ public class PlayerSaveData : ISaveable
         }
 
         return toReturn;
+    }
+
+    public static PlayerSaveData GetPlayerSave()
+    {
+        PlayerSaveData saveData = new PlayerSaveData();
+        saveData.SetFromString(ReadTextFile("", "playerData.txt"));
+        return saveData;
     }
 }

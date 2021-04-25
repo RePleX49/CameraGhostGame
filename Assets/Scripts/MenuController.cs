@@ -63,13 +63,15 @@ public class MenuController : MonoBehaviour
     //start a new game
     public void NewGame()
     {
+        // Reset save data and set local data reference to new file
         PlayerSaveData.DeletePlayerSave();
+        saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
         saveData.isEmptySave = false;
         PlayerSaveData.WriteString(PlayerSaveData.saveFileName, saveData.GetString());
         mainMenu.SetActive(false);
         CloseConfirmNewGame();
         cameraAC.SetBool("newGameAnim", true);
-        Invoke("SetStartGameActive", 3.0f);
+        Invoke("SetStartGameActive", 5.0f);
     }
 
     void SetStartGameActive()
