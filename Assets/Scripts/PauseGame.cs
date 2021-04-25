@@ -15,6 +15,7 @@ public class PauseGame : MonoBehaviour
     public AudioMixerSnapshot pausedAudioSnapshot;
     public AudioMixerSnapshot unpausedAudioSnapshot;
     public AudioMixer audioMixer;
+    public SettingsMenuScript settingsMenu;
     
     void Update()
     {
@@ -106,12 +107,7 @@ public class PauseGame : MonoBehaviour
     
     public void CloseSound()
     {
-        PlayerSaveData saveData = PlayerSaveData.GetPlayerSave();
-        float mixerVolume;
-        audioMixer.GetFloat("masterVolume", out mixerVolume);
-        saveData.masterVolume = (int)mixerVolume;
-
-        PlayerSaveData.WriteString("playerData.txt", saveData.GetString());
+        settingsMenu.SaveVolumePreference();
         optionScreen.SetActive(true);
         soundScreen.SetActive(false);
     }

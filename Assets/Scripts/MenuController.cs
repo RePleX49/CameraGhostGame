@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
     public Animator cameraAC;
     public GameObject soundMenu;
     public Button continueButton;
+    public SettingsMenuScript settingsMenu;
 
     PlayerSaveData saveData;
 
@@ -104,6 +105,7 @@ public class MenuController : MonoBehaviour
     
     public void CloseOptions()
     {
+        settingsMenu.SaveVolumePreference();
         mainMenu.SetActive(true);
         soundMenu.SetActive(false);
     }

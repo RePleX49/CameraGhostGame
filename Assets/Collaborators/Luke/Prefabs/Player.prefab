@@ -5021,6 +5021,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5411740908096150132}
     m_Modifications:
+    - target: {fileID: 4781143272466295297, guid: 85dc40660a01d3d4fbbf25eb95b654d0,
+        type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 61367273889423728}
     - target: {fileID: 8010290569435195475, guid: 85dc40660a01d3d4fbbf25eb95b654d0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

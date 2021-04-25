@@ -46,4 +46,14 @@ public class SettingsMenuScript : MonoBehaviour
         int textVal = (int)masterVolumeSlider.value;
         volumeText.text = textVal.ToString("D");
     }
+
+    public void SaveVolumePreference()
+    {
+        PlayerSaveData saveData = PlayerSaveData.GetPlayerSave();
+        float mixerVolume;
+        mainAudioMixer.GetFloat("masterVolume", out mixerVolume);
+        saveData.masterVolume = (int)mixerVolume;
+
+        PlayerSaveData.WriteString("playerData.txt", saveData.GetString());
+    }
 }
