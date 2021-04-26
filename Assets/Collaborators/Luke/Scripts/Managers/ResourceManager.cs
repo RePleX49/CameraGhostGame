@@ -79,6 +79,14 @@ public class ResourceManager
         return currentSanity / maxSanity;
     }
 
+    public void ConsumePill()
+    {
+        if (pillsCount < 1)
+            return;
+
+        currentSanity = Mathf.Min(maxSanity, currentSanity + (maxSanity * 0.3f));
+    }
+
     public void AddPills()
     {
         pillsCount++;
@@ -87,6 +95,11 @@ public class ResourceManager
     public void SubtractPills()
     {
         pillsCount--;
+    }
+
+    public int GetPillCount()
+    {
+        return pillsCount;
     }
 
     public void SavePlayerData()

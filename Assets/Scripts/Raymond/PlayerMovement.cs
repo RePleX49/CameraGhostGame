@@ -44,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            GameServices.playerStats.ConsumePill();
+        }
+
         bool isSprinting = Input.GetAxisRaw("Sprint") > 0;
         isGrounded = controller.isGrounded;
 
