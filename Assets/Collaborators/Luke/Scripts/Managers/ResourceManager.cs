@@ -45,8 +45,9 @@ public class ResourceManager
         if (currentSanity <= 0.0f)
         {
             // add fade out
-            InputModeManager.SwitchInputModeMenu();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            //InputModeManager.SwitchInputModeMenu();
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            GameServices.playerUI.ShowGameOver();
             return;
         }
 

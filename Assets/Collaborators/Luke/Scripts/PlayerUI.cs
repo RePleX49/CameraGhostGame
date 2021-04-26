@@ -13,6 +13,8 @@ public class PlayerUI : MonoBehaviour
     public Animator fadeOutAnim;
     public Text textPillCount;
 
+    public GameObject GameOverPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,13 @@ public class PlayerUI : MonoBehaviour
     public void PlayFadeOut()
     {
         fadeOutAnim.SetTrigger("FadeOut");
+    }
+
+    public void ShowGameOver()
+    {
+        Time.timeScale = 0;
+        InputModeManager.SwitchInputModeMenu();
+        AudioListener.pause = true;
+        GameOverPanel.SetActive(true);
     }
 }
