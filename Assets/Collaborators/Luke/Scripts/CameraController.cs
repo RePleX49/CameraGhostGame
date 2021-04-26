@@ -49,6 +49,9 @@ public class CameraController : MonoBehaviour
 
     public Image flashCooldownImage;
 
+    public List<GameObject> ghosts;
+    public GameObject closestGhost;
+
     private void Awake()
     {
         GameServices.cameraController = this;
@@ -108,6 +111,15 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
+        if(Input.GetKeyDown(KeyCode.F) && IsCameraReady() && this.gameObject.layer == 12)
+        {
+            for(int i = 0; i < ghosts.Count; i++)
+            {
+                ghosts[i].SendMessage("Flashed");
+            }
+            Debug.Log("oh");
+        }
+
         /*
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -115,7 +127,7 @@ public class CameraController : MonoBehaviour
         }
         */
 
-        if(Input.GetKeyDown(KeyCode.Q) && hasCamera)
+        if (Input.GetKeyDown(KeyCode.Q) && hasCamera)
         {
             if(isEquipped)
             {
@@ -124,6 +136,30 @@ public class CameraController : MonoBehaviour
             else
             {
                 EquipCamera();
+            }
+        }
+
+        if(ghosts.Count > 0)
+        {
+            closestGhost = ghosts[0];
+            for(int i = 1; i < ghosts.Count; i++)
+            {
+                if(Vector3.Distance(transform.position, ghosts[i].transform.position) < Vector3.Distance(transform.position, closestGhost.transform.position))
+                {
+                    closestGhost = ghosts[i];
+                }
+            }
+            if (Vector3.Distance(closestGhost.transform.position, transform.position) < 10f)
+            {
+                GameServices.gameCycleManager.BeingHunted2();
+            }
+            else if (Vector3.Distance(closestGhost.transform.position, transform.position) < 20f)
+            {
+                GameServices.gameCycleManager.BeingHunted1();
+            }
+            else
+            {
+                GameServices.gameCycleManager.ResetDrainRate();
             }
         }
     }

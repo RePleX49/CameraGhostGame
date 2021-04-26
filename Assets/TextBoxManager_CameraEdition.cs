@@ -34,6 +34,10 @@ public class TextBoxManager_CameraEdition : MonoBehaviour
     public int textNumber;
     public GameObject eventManager;
 
+    public GameObject monster1;
+    public GameObject monster2;
+    public GameObject monster3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,6 +89,10 @@ public class TextBoxManager_CameraEdition : MonoBehaviour
             {
                 GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = true;
             }
+
+            monster1.SendMessage("WalkOff");
+            monster2.SendMessage("WalkOff");
+            monster3.SendMessage("WalkOff");
 
             personTalkingBox.gameObject.SetActive(false);
             textbox.gameObject.SetActive(false);

@@ -28846,6 +28846,21 @@ PrefabInstance:
       propertyPath: alertNoise
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger1
+      value: 
+      objectReference: {fileID: 8300000, guid: ba1bc6b017c2a479d9b077779dfd25f7, type: 3}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger2
+      value: 
+      objectReference: {fileID: 8300000, guid: e1808f81684d7459a9e10febcfeb206f, type: 3}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stingers
+      value: 
+      objectReference: {fileID: 984384147}
     - target: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
         type: 3}
       propertyPath: m_Name
@@ -28853,6 +28868,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56f3f36317de3945981c4e6e298789b, type: 3}
+--- !u!82 &984384147 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7745149232026745913, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 984384146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996275239
 GameObject:
   m_ObjectHideFlags: 0
@@ -43805,6 +43826,21 @@ PrefabInstance:
       propertyPath: alertNoise
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stingers
+      value: 
+      objectReference: {fileID: 1860595838}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger1
+      value: 
+      objectReference: {fileID: 8300000, guid: ba1bc6b017c2a479d9b077779dfd25f7, type: 3}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger2
+      value: 
+      objectReference: {fileID: 8300000, guid: e1808f81684d7459a9e10febcfeb206f, type: 3}
     - target: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
         type: 3}
       propertyPath: m_Name
@@ -43827,6 +43863,12 @@ NavMeshAgent:
 --- !u!65 &1860595837 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 453060760714799446, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860595834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1860595838 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7745149232026745913, guid: e56f3f36317de3945981c4e6e298789b,
     type: 3}
   m_PrefabInstance: {fileID: 1860595834}
   m_PrefabAsset: {fileID: 0}
@@ -48853,6 +48895,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger1
+      value: 
+      objectReference: {fileID: 8300000, guid: ba1bc6b017c2a479d9b077779dfd25f7, type: 3}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stinger2
+      value: 
+      objectReference: {fileID: 8300000, guid: e1808f81684d7459a9e10febcfeb206f, type: 3}
+    - target: {fileID: 453060760714799447, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: stingers
+      value: 
+      objectReference: {fileID: 6190525768638785750}
     - target: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
         type: 3}
       propertyPath: m_Name
@@ -48865,6 +48922,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56f3f36317de3945981c4e6e298789b, type: 3}
+--- !u!82 &6190525768638785750 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7745149232026745913, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6190525768638785749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6238245658315598870
 GameObject:
   m_ObjectHideFlags: 0
