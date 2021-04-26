@@ -8,8 +8,6 @@ public class GhostBehavior : MonoBehaviour
     // NECESSARY COMPONENT FOR PATH FINDING
     public NavMeshAgent agent;
 
-    public float chaseSpeed;
-
     // WE USE A VECTOR3 ARRAY TO STORE AND CYCLE THROUGH DIFFERENT LOCATIONS ON ITS PATROLLING ROUTE
     public Vector3[] spots;
     public int currentSpotNumber;       // mostly used for index of spots array
@@ -30,6 +28,7 @@ public class GhostBehavior : MonoBehaviour
     // STUN PROPERTIES
     public bool stunned;
     public float stunTime;              // how long is the ghost stunned for?
+    public bool flashed;
 
     // VARIABLES NEEDED FOR CAMERA DETECTION FROM PLAYER
     public Collider objCollider;
@@ -45,6 +44,9 @@ public class GhostBehavior : MonoBehaviour
     public AudioClip breath3;
     public AudioClip alertNoise;
     public AudioClip whisper;
+    public AudioSource stingers;
+    public AudioClip stinger1;
+    public AudioClip stinger2;
 
     public Animator animator;
 
@@ -55,7 +57,9 @@ public class GhostBehavior : MonoBehaviour
         player = GameObject.Find("Player");
         objCollider = GetComponent<Collider>();
         audiosrc.clip = whisper;
+        stingers.clip = stinger1;
         //audiosrc.Play();
+        GameServices.cameraController.ghosts.Add(this.gameObject);
     }
 
     void Update()
@@ -85,7 +89,7 @@ public class GhostBehavior : MonoBehaviour
                 UndetectPlayer();
             }
         }
-
+        /*
         if (Vector3.Distance(player.transform.position, transform.position) < 10f)
         {
             GameServices.gameCycleManager.BeingHunted2();
@@ -97,7 +101,7 @@ public class GhostBehavior : MonoBehaviour
         else
         {
             GameServices.gameCycleManager.ResetDrainRate();
-        }
+        }*/
 
         // if the ghost is alert but doesn't see the player, start decrementing its memory so that it can eventually forget about the player
         if (!detected && currentDetectionTime > 0)
@@ -107,7 +111,7 @@ public class GhostBehavior : MonoBehaviour
 
         // camera business
         planes = GeometryUtility.CalculateFrustumPlanes(cam);
-        if (Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady() && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds) && player.layer == 12)
+        if (flashed && GeometryUtility.TestPlanesAABB(planes, objCollider.bounds))
         {
             // sending a raycast from ghost to player... if it hits, it stuns
             // we use a raycast to ensure that there is no wall or object between the ghost and the player
@@ -123,6 +127,7 @@ public class GhostBehavior : MonoBehaviour
                     stunned = true;
                 }
             }
+            flashed = false;
         }
 
         /*
@@ -187,6 +192,8 @@ public class GhostBehavior : MonoBehaviour
             {
                 if (!playingSound3 && player.layer == 12)
                 {
+                    stingers.clip = stinger1;
+                    stingers.Play();
                     audiosrc.clip = breath1;
                     audiosrc.Play();
                     playingSound1 = false;
@@ -254,6 +261,8 @@ public class GhostBehavior : MonoBehaviour
     // also where the sanity drop would occur
     private void Hunt()
     {
+        agent.speed = 8f;
+        animator.speed = 2f;
         if (Vector3.Distance(this.transform.position, player.transform.position) > 5f)
         {
             Quaternion toRotation = Quaternion.LookRotation(player.transform.position - transform.position);
@@ -264,20 +273,14 @@ public class GhostBehavior : MonoBehaviour
         {
             agent.SetDestination(this.transform.position);
         }
-        if (Vector3.Distance(this.transform.position, player.transform.position) < 10f)
-        {
-             // DRASTICALLY DECREASE SANITY
-        }
-        else if (Vector3.Distance(this.transform.position, player.transform.position) < 20f)
-        {
-            // DECREASE SANITY A LITTLE LESS
-        }
     }
 
     // ghost goes back to its patrolling path
     // when returning it actually skips to the next spot
     private void BackTrack()
     {
+        agent.speed = 3.8f;
+        animator.speed = 1f;
         if(Vector3.Distance(this.transform.position, spots[currentSpotNumber]) < 2f)
         {
             currentSpotNumber++;
@@ -290,6 +293,11 @@ public class GhostBehavior : MonoBehaviour
         agent.SetDestination(spots[currentSpotNumber]);
     }
 
+    public void Flashed()
+    {
+        flashed = true;
+    }
+
 
 
 
@@ -298,7 +306,7 @@ public class GhostBehavior : MonoBehaviour
      * EVERYTHING BELOW IS FROM THE OLD PROTOTYPE OF THE GHOST
      * 
      * 
-     */    
+     */
 
 
 
