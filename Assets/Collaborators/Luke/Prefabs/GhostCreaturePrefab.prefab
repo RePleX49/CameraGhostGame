@@ -208,7 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 6190525768657615227}
-  chaseSpeed: 0
   spots:
   - {x: 41, y: 1.3, z: 34}
   - {x: 79, y: 1.3, z: 34}
@@ -224,6 +223,7 @@ MonoBehaviour:
   alert: 0
   stunned: 0
   stunTime: 5
+  flashed: 0
   objCollider: {fileID: 453060760714799446}
   cam: {fileID: 0}
   playingSound1: 0
@@ -234,7 +234,10 @@ MonoBehaviour:
   breath2: {fileID: 8300000, guid: c1b16b51b4db34cffa597b12bf092595, type: 3}
   breath3: {fileID: 8300000, guid: 4e8adbc74e655402ba6590ebab2df7c1, type: 3}
   alertNoise: {fileID: 8300000, guid: 9b98ff0364e20a8419cc37aa4970d432, type: 3}
-  whisper: {fileID: 8300000, guid: 53eb5697837cf465d9f2b2003c514f2d, type: 3}
+  whisper: {fileID: 8300000, guid: 82168910209791a4a99a7fb282609c6b, type: 3}
+  stingers: {fileID: 0}
+  stinger1: {fileID: 0}
+  stinger2: {fileID: 0}
   animator: {fileID: 6190525768146001452}
 --- !u!195 &6190525768657615227
 NavMeshAgent:
