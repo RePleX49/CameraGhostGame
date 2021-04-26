@@ -1,4 +1,4 @@
 1"What's this?"
 1"A camera?"
-0FOUND THE SPIRIT CAMERA!
-0PRESS Q TO PULL UP THE CAMERA
+1Found the Spirit Camera!
+1Press Q to pull up the camera
