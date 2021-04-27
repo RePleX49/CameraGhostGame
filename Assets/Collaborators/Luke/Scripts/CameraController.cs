@@ -106,7 +106,6 @@ public class CameraController : MonoBehaviour
             {
                 ghosts[i].SendMessage("Flashed");
             }
-            Debug.Log("oh");
         }
 
         /*
@@ -138,11 +137,11 @@ public class CameraController : MonoBehaviour
                     closestGhost = ghosts[i];
                 }
             }
-            if (Vector3.Distance(closestGhost.transform.position, transform.position) < 10f)
+            if (Vector3.Distance(closestGhost.transform.position, transform.position) < 10f && !closestGhost.GetComponent<GhostBehavior>().stunned)
             {
                 GameServices.gameCycleManager.BeingHunted2();
             }
-            else if (Vector3.Distance(closestGhost.transform.position, transform.position) < 20f)
+            else if (Vector3.Distance(closestGhost.transform.position, transform.position) < 20f && !closestGhost.GetComponent<GhostBehavior>().stunned)
             {
                 GameServices.gameCycleManager.BeingHunted1();
             }
