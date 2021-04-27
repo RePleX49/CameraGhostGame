@@ -47,6 +47,7 @@ public class GhostBehavior : MonoBehaviour
     public AudioSource stingers;
     public AudioClip stinger1;
     public AudioClip stinger2;
+    public bool stung;
 
     public Animator animator;
 
@@ -89,19 +90,6 @@ public class GhostBehavior : MonoBehaviour
                 UndetectPlayer();
             }
         }
-        /*
-        if (Vector3.Distance(player.transform.position, transform.position) < 10f)
-        {
-            GameServices.gameCycleManager.BeingHunted2();
-        }
-        else if(Vector3.Distance(player.transform.position, transform.position) < 20f)
-        {
-            GameServices.gameCycleManager.BeingHunted1();
-        }
-        else
-        {
-            GameServices.gameCycleManager.ResetDrainRate();
-        }*/
 
         // if the ghost is alert but doesn't see the player, start decrementing its memory so that it can eventually forget about the player
         if (!detected && currentDetectionTime > 0)
@@ -129,13 +117,6 @@ public class GhostBehavior : MonoBehaviour
             }
             flashed = false;
         }
-
-        /*
-        // keeping this comment cuz it might be useful for debugging later       
-        else if(Input.GetKey(KeyCode.F) && player.GetComponent<CameraController>().IsCameraReady())
-        {
-            Debug.Log("Nothing has been detected");
-        }*/
 
         // if stunned, stay in place and don't do anything else
         if (stunned)
@@ -184,6 +165,7 @@ public class GhostBehavior : MonoBehaviour
                         playingSound2 = true;
                         playingSound3 = false;
                     }
+                    stung = false;
                     BackTrack();
                 }
             }
@@ -192,8 +174,12 @@ public class GhostBehavior : MonoBehaviour
             {
                 if (!playingSound3 && player.layer == 12)
                 {
-                    stingers.clip = stinger1;
-                    stingers.Play();
+                    if (!stung)
+                    {
+                        stingers.clip = stinger1;
+                        stingers.Play();
+                        stung = true;
+                    }
                     audiosrc.clip = breath1;
                     audiosrc.Play();
                     playingSound1 = false;
