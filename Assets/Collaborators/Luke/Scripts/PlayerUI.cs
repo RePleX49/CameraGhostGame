@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class PlayerUI : MonoBehaviour
     delegate float UpdateSliderPercentage();
 
     public Animator fadeOutAnim;
-    public Text textPillCount;
+    public Image pillFillImage;
 
     public GameObject GameOverPanel;
 
@@ -25,7 +26,7 @@ public class PlayerUI : MonoBehaviour
     void Update()
     {
         sanitySlider.value = GameServices.playerStats.GetSanityPercentage();
-        textPillCount.text = GameServices.playerStats.GetPillCount().ToString();
+        pillFillImage.fillAmount = GameServices.playerStats.GetPillCountRatio();
     }
 
     // Trigger for fade to black effect

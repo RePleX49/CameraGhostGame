@@ -28575,6 +28575,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCreaturePrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799451, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56f3f36317de3945981c4e6e298789b, type: 3}
 --- !u!82 &984384147 stripped
@@ -28583,6 +28589,25 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 984384146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &984384148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 984384146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &984384149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984384148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f759cac3c7d1a84c94deb781dc6a30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNormalSource: 0
 --- !u!1 &996275239
 GameObject:
   m_ObjectHideFlags: 0
@@ -43849,6 +43874,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCreaturePrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799451, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56f3f36317de3945981c4e6e298789b, type: 3}
 --- !u!82 &1860595835 stripped
@@ -43875,6 +43906,25 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1860595834}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1860595839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1860595834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860595840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860595839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f759cac3c7d1a84c94deb781dc6a30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNormalSource: 0
 --- !u!1 &1861636916
 GameObject:
   m_ObjectHideFlags: 0
@@ -48918,6 +48968,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostCreaturePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 453060760714799451, guid: e56f3f36317de3945981c4e6e298789b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -979142799848374034, guid: c76abf7f0e31c0549836a897bb14a3bf,
+        type: 2}
     - target: {fileID: 6190525769127050706, guid: e56f3f36317de3945981c4e6e298789b,
         type: 3}
       propertyPath: m_IsActive
@@ -48931,6 +48987,25 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 6190525768638785749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6190525768638785751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 453060760714799448, guid: e56f3f36317de3945981c4e6e298789b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6190525768638785749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6190525768638785752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190525768638785751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f759cac3c7d1a84c94deb781dc6a30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNormalSource: 0
 --- !u!1 &6238245658315598870
 GameObject:
   m_ObjectHideFlags: 0

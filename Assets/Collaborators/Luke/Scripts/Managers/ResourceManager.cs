@@ -12,6 +12,7 @@ public class ResourceManager
     //float sanityDrainRateGhost = 0.4f;
 
     int pillsCount = 0;
+    int maxPillsCount = 3;
     public bool clearedSection1 = false;
 
     private static PlayerSaveData playerData;
@@ -86,11 +87,12 @@ public class ResourceManager
             return;
 
         currentSanity = Mathf.Min(maxSanity, currentSanity + (maxSanity * 0.3f));
+        pillsCount--;
     }
 
     public void AddPills()
     {
-        pillsCount++;
+        pillsCount = Mathf.Min(maxPillsCount, pillsCount + 1);
     }
 
     public void SubtractPills()
@@ -98,9 +100,9 @@ public class ResourceManager
         pillsCount--;
     }
 
-    public int GetPillCount()
+    public float GetPillCountRatio()
     {
-        return pillsCount;
+        return (float)pillsCount / (float)maxPillsCount;
     }
 
     public void SavePlayerData()
