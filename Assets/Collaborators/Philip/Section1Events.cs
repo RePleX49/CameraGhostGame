@@ -40,7 +40,7 @@ public class Section1Events : MonoBehaviour
         if (GameServices.cameraController.IsCameraReady() && eventTriggered[1] && !eventTriggered[2])
         {
             GameServices.cameraController.DisableCamera();
-            playerMovement.enabled = false;
+            playerMovement.DisableMovement();
             text3.SetActive(true);
         }
     }
@@ -52,7 +52,7 @@ public class Section1Events : MonoBehaviour
         cameraController = GameServices.cameraController;
         ghostCameraObject = GameServices.cameraController.GetCameraMesh();
         cameraController.DisableCamera();
-        playerMovement.enabled = false;
+        playerMovement.DisableMovement();
         text1.SetActive(true);
         talking = true;
     }
@@ -80,7 +80,7 @@ public class Section1Events : MonoBehaviour
         }
         eventTriggered[textNumber - 1] = true;
         talking = false;
-        playerMovement.enabled = true;
+        playerMovement.EnableMovement();
     }
 
     public void Triggered(int eventNumber)
@@ -90,19 +90,19 @@ public class Section1Events : MonoBehaviour
             if (eventNumber == 2)
             {
                 cameraController.DisableCamera();
-                playerMovement.enabled = false;
+                playerMovement.DisableMovement();
                 talking = true;
                 text2.SetActive(true);
             }
             if(eventNumber == 4 && eventTriggered[2]) //&& cameraController.IsCameraReady())
             {
-                playerMovement.enabled = false;
+                playerMovement.DisableMovement();
                 talking = true;
                 text4.SetActive(true);
             }
             if (eventNumber == 7)
             {
-                playerMovement.enabled = false;
+                playerMovement.DisableMovement();
                 talking = true;
                 text7.SetActive(true);
             }
@@ -128,7 +128,7 @@ public class Section1Events : MonoBehaviour
     {
         if (!eventTriggered[5])
         {
-            playerMovement.enabled = false;
+            playerMovement.DisableMovement();
             talking = true;
             text6.SetActive(true);
         }
