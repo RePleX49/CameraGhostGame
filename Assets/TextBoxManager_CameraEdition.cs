@@ -87,7 +87,7 @@ public class TextBoxManager_CameraEdition : MonoBehaviour
             }
             else
             {
-                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().EnableMovement();
             }
 
             monster1.SendMessage("WalkOff");

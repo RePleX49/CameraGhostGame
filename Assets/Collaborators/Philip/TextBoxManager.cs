@@ -80,7 +80,7 @@ public class TextBoxManager : MonoBehaviour
             }
             else
             {
-                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().EnableMovement();
             }
             
             personTalkingBox.gameObject.SetActive(false);

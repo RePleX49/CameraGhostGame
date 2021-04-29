@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool isWalking;
 
+    float baseFootStepPitch;
+    float lastStepTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         movementDisabled = false;
         isWalking = false;
+        baseFootStepPitch = footstepAudio.pitch;
     }
 
     // Update is called once per frame
@@ -41,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(movementDisabled)
         {
+            CancelInvoke("PlaySteps");
+            isWalking = false;
             return;
         }
 
@@ -74,16 +80,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = transform.right * x + transform.forward * z;
         targetVelocity.Normalize();
 
-        //if(targetVelocity.magnitude > 0 && !isWalking)
-        //{
-        //    isWalking = true;
-        //    InvokeRepeating("PlaySteps", 0.0f, delayBetweenSteps);
-        //}
-        //else if(targetVelocity.magnitude == 0)
-        //{
-        //    CancelInvoke("PlaySteps");
-        //    isWalking = false;
-        //}
+        if (targetVelocity.magnitude > 0 && !isWalking)
+        {
+            isWalking = true;
+            InvokeRepeating("PlaySteps", 0.0f, delayBetweenSteps);
+        }
+        else if (targetVelocity.magnitude == 0)
+        {
+            CancelInvoke("PlaySteps");
+            isWalking = false;
+        }
 
         float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
         targetVelocity *= moveSpeed;
@@ -121,6 +127,15 @@ public class PlayerMovement : MonoBehaviour
 
     void PlaySteps()
     {
+        // Check remainder delay from last step to prevent sound spamming
+        if((lastStepTime + delayBetweenSteps - Time.time) > 0.1f)
+        {
+            return;
+        }
+
+        lastStepTime = Time.time;
+        float randPitch = Random.Range(-0.1f, 0.1f);
+        footstepAudio.pitch = baseFootStepPitch + randPitch;
         footstepAudio.Play();
     }
 }

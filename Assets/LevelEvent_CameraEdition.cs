@@ -56,7 +56,7 @@ public class LevelEvent_CameraEdition : MonoBehaviour
         if(eventDialogue)
         {
             eventDialogue.gameObject.SetActive(true);
-            GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = false;
+            GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().DisableMovement();
             gameObject.GetComponent<Collider>().enabled = false;
         }
     }
