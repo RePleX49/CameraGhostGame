@@ -39,8 +39,6 @@ public class ResourceManager
         clearedSection1 = playerData.clearedSection1;
     }
 
-    
-
     public void Update(float rechargeRate, float ghostRate)
     {
         if (currentSanity <= 0.0f)

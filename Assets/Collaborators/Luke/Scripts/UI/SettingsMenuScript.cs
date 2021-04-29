@@ -36,7 +36,7 @@ public class SettingsMenuScript : MonoBehaviour
 
     public void AdjustMasterVolume(float newVolume)
     {
-        Debug.Log("Called adjust " + newVolume);
+        //Debug.Log("Called adjust " + newVolume);
         // mapping 0->100 to (-80)->0 ("0->100" audio range in AudioMixer)
         newVolume /= 100.0f;
         float mixerVolume = (80.0f * newVolume) - 80.0f;

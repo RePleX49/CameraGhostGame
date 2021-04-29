@@ -50,6 +50,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 6edc28c8fce46fd40a523c3fb1e15bcc
+    name: sanityBGMVolume
   - guid: bb4a29d0705b5ab49846d04ca57c5fa3
     name: masterVolume
   m_AudioMixerGroupViews:
@@ -60,7 +62,7 @@ AudioMixerController:
     - 219c1f759e16ac24cb3f1678fac57e7e
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 2306993661377078802}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -106,7 +108,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 71e36b5543bdc24459afd1fa270303f4
   m_FloatValues:
-    6edc28c8fce46fd40a523c3fb1e15bcc: -2.6959682
+    6edc28c8fce46fd40a523c3fb1e15bcc: -80
     50f95a7e2d47147438cc76a17ebce5d5: -2.8722944
   m_TransitionOverrides: {}
 --- !u!245 &2306993661377078802

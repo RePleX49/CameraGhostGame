@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameCycleManager : MonoBehaviour
 {
     public float sanityRechargeRate = 0.2f;
     public float sanityDrainRateGhost = 0.4f;
+
+    public AudioMixer mainAudioMixer;
 
     bool inDialogue;
 
@@ -21,6 +24,11 @@ public class GameCycleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float volumePercentage = GameServices.playerStats.GetSanityPercentage();
+        volumePercentage = 1 - volumePercentage;
+        float mixerVolume = (80.0f * volumePercentage) - 80.0f;
+        mainAudioMixer.SetFloat("sanityBGMVolume", mixerVolume);
+
         if(inDialogue)
         {
             return;

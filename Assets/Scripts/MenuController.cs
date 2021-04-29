@@ -87,6 +87,7 @@ public class MenuController : MonoBehaviour
         // Load section 1 or section 2 based on saved boolean
 
         AudioListener.pause = false;
+        Time.timeScale = 1;
         if(saveData.clearedSection1 == true)
         {
             SceneManager.LoadScene(2);
@@ -124,6 +125,7 @@ public class MenuController : MonoBehaviour
     public void Exit()
     {
         AudioListener.pause = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
     
