@@ -767,12 +767,14 @@
                 <e p="GameCycleManager.cs" t="Include" />
                 <e p="InputModeManager.cs" t="Include" />
                 <e p="LevelEvent.cs" t="Include" />
+                <e p="LevelEventsInitializer.cs" t="Include" />
                 <e p="ResourceManager.cs" t="Include" />
               </e>
               <e p="PlayerUI.cs" t="Include" />
               <e p="PortalController.cs" t="Include" />
               <e p="Save System" t="Include">
                 <e p="ByteSerializer.cs" t="Include" />
+                <e p="PlayerSaveData.cs" t="Include" />
                 <e p="SerializationTest.cs" t="Include" />
               </e>
               <e p="ScreenshotScript.cs" t="Include" />
@@ -796,6 +798,7 @@
                 <e p="Text999 - Map.txt" t="Include" />
               </e>
               <e p="Section2" t="Include">
+                <e p="S2_CameraTutorial.txt" t="Include" />
                 <e p="S2_FirstGenerator.txt" t="Include" />
                 <e p="S2_GetPowerCell.txt" t="Include" />
                 <e p="S2_Intro.txt" t="Include" />
@@ -829,12 +832,14 @@
         <e p="EventTriggerer.cs" t="Include" />
         <e p="GhostVision.cs" t="Include" />
         <e p="GreyScaleShader.shader" t="Include" />
+        <e p="LevelEvent_CameraEdition.cs" t="Include" />
         <e p="Material" t="Include">
           <e p="Insanity.shader" t="Include" />
           <e p="InteractShader.shader" t="Include" />
           <e p="WaterShder.shader" t="Include" />
         </e>
         <e p="NavMeshSurface.cs" t="Include" />
+        <e p="playerData.txt" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Alekai" t="Include">
             <e p="AudioManager.cs" t="Include" />
@@ -843,6 +848,7 @@
           <e p="BuyFilmScript.cs" t="Include" />
           <e p="BuyFoodScript.cs" t="Include" />
           <e p="BuyPillScript.cs" t="Include" />
+          <e p="CreditsScreen.cs" t="Include" />
           <e p="EatFood.cs" t="Include" />
           <e p="FlapScript.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
@@ -879,6 +885,7 @@
             </e>
           </e>
         </e>
+        <e p="TextBoxManager_CameraEdition.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
