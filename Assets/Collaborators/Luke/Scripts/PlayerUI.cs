@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -15,6 +15,10 @@ public class PlayerUI : MonoBehaviour
     public Image pillFillImage;
 
     public GameObject GameOverPanel;
+
+    public AudioMixer audioMixer;
+    public AudioMixerSnapshot unPausedSnapshot;
+    public AudioMixerSnapshot muteSnapshot;
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +39,13 @@ public class PlayerUI : MonoBehaviour
         fadeOutAnim.SetTrigger("FadeOut");
     }
 
-    public void ShowGameOver()
+    public IEnumerator ShowGameOver()
     {
-        Time.timeScale = 0;
         InputModeManager.SwitchInputModeMenu();
-        AudioListener.pause = true;
+        PlayFadeOut();
+        GameServices.gameCycleManager.gameOver = true;
+        yield return new WaitForSeconds(2.0f);
         GameOverPanel.SetActive(true);
+        yield return null;
     }
 }

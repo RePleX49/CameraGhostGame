@@ -26,6 +26,9 @@ public class PauseGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (GameServices.gameCycleManager.gameOver)
+                return;
+
             if (Time.timeScale != 0 && pauseScreen.activeSelf == false)
             {
                 // AudioListener.pause = true;

@@ -742,7 +742,7 @@ MonoBehaviour:
 
     Luke Lin
 
-    Raymond Lotian
+    Raymond Lothian
 
 '
 --- !u!222 &520623251
@@ -1897,7 +1897,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Elisabeth Yuhan
+  m_Text: 'Elisabeth Yuhas
 
 '
 --- !u!222 &1769400705
@@ -1979,7 +1979,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Creators
+  m_Text: Made By
 --- !u!222 &1955933507
 CanvasRenderer:
   m_ObjectHideFlags: 0

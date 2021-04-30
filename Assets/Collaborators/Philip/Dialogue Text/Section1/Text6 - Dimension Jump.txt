@@ -1,5 +1,6 @@
 1"What the hell is this?"
 1"My head feels like something is pulling at it..."
-0WHEN IN THE SPIRIT REALM, YOU WILL LOSE HEALTH AT AN ALARMING RATE
-0KEEP ON EYE ON THE HEALTH BAR AT THE TOP LEFT OF THE SCREEN
-0IF IT REACHES ZERO YOU WILL NEED TO RESTART FROM YOUR LAST CHECKPOINT
+0 When in the Spirit Realm, your health will continually deplete.
+0 When you return from the Spirit Realm, your health will regenerate.
+0 Around the level you may find pills that can be used to heal when you press 'E'.
+0 When your health reaches zero, you will restart at the beginning of the level.

@@ -41,12 +41,17 @@ public class ResourceManager
 
     public void Update(float rechargeRate, float ghostRate)
     {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            currentSanity = 0.0f;
+        }
+
         if (currentSanity <= 0.0f)
         {
             // add fade out
             //InputModeManager.SwitchInputModeMenu();
             //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
-            GameServices.playerUI.ShowGameOver();
+            GameServices.playerUI.StartCoroutine(GameServices.playerUI.ShowGameOver());
             return;
         }
 

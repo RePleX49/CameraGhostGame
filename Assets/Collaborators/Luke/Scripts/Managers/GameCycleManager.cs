@@ -11,6 +11,7 @@ public class GameCycleManager : MonoBehaviour
     public AudioMixer mainAudioMixer;
 
     bool inDialogue;
+    public bool gameOver;
 
     // Start is called before the first frame update
     void Awake()
@@ -49,16 +50,16 @@ public class GameCycleManager : MonoBehaviour
 
     public void BeingHunted1()
     {
-        sanityDrainRateGhost = 1.2f;
+        sanityDrainRateGhost = 1.5f;
     }
 
     public void BeingHunted2()
     {
-        sanityDrainRateGhost = 4.5f;
+        sanityDrainRateGhost = 6f;
     }
 
     public void ResetDrainRate()
     {
-        sanityDrainRateGhost = 0.4f;
+        sanityDrainRateGhost = 0.7f;
     }
 }
