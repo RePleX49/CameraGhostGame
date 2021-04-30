@@ -1,2 +1,2 @@
-0"FACILITY LOCKDOWN ENGAGED"
-0"PLEASE INSERT POWER CELL INTO CENTRAL POWER TUBE"
+0"Warning! This floor is running on low power."
+0"Please replace the generator's power cell."

@@ -36,9 +36,10 @@ public class MenuController : MonoBehaviour
 
         if (mainMenu)
         {
+            InputModeManager.SwitchInputModeMainMenu();
             mainMenu.SetActive(true);
 
-            if(saveData.isEmptySave)
+            if(saveData.isCompletedSave)
             {
                 continueButton.interactable = false;
             }          
@@ -67,7 +68,7 @@ public class MenuController : MonoBehaviour
         // Reset save data and set local data reference to new file
         PlayerSaveData.DeletePlayerSave();
         saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
-        saveData.isEmptySave = false;
+        saveData.isCompletedSave = false;
         PlayerSaveData.WriteString(PlayerSaveData.saveFileName, saveData.GetString());
         mainMenu.SetActive(false);
         CloseConfirmNewGame();

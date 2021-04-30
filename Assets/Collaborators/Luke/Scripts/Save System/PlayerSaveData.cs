@@ -15,7 +15,7 @@ public class PlayerSaveData : ISaveable
 {
     public bool clearedSection1;
     public int pillsCollected;
-    public bool isEmptySave;
+    public bool isCompletedSave;
     public int masterVolume;
 
     public const string saveFileName = "playerData.txt";   
@@ -24,7 +24,7 @@ public class PlayerSaveData : ISaveable
     {
         clearedSection1 = false;
         pillsCollected = 0;
-        isEmptySave = true;
+        isCompletedSave = true;
         masterVolume = 100;
     }
 
@@ -43,7 +43,7 @@ public class PlayerSaveData : ISaveable
 
         bw.Write(clearedSection1);
         bw.Write(pillsCollected);
-        bw.Write(isEmptySave);
+        bw.Write(isCompletedSave);
         bw.Write(masterVolume);
 
         ByteSerializer saveData = new ByteSerializer(ms.GetBuffer());
@@ -67,7 +67,7 @@ public class PlayerSaveData : ISaveable
 
         clearedSection1 = br.ReadBoolean();
         pillsCollected = br.ReadInt32();
-        isEmptySave = br.ReadBoolean();
+        isCompletedSave = br.ReadBoolean();
         masterVolume = br.ReadInt32();
 
         br.Close();
@@ -87,7 +87,7 @@ public class PlayerSaveData : ISaveable
         saveDataBuffer.SetFromString(ReadTextFile("", "playerData.txt"));
         saveDataBuffer.clearedSection1 = false;
         saveDataBuffer.pillsCollected = 0;
-        saveDataBuffer.isEmptySave = true;
+        saveDataBuffer.isCompletedSave = true;
         WriteString("playerData.txt", saveDataBuffer.GetString());
     }
 

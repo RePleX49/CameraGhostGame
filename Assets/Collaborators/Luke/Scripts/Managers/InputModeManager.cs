@@ -12,6 +12,12 @@ public static class InputModeManager
         GameServices.cameraController.DisableControl();
     }
 
+    public static void SwitchInputModeMainMenu()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     public static void SwitchInputModeGame()
     {
         Cursor.visible = false;

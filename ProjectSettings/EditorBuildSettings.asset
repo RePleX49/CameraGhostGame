@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Steph_Test_Scenes/GameOver.unity
     guid: 1317a0b0f94cfc5449767e15a50ffe92
+  - enabled: 1
+    path: Assets/Scenes/Steph_Test_Scenes/EndScreen.unity
+    guid: bae0a2fe64c19c942852a8c034010ec4
   m_configObjects: {}
