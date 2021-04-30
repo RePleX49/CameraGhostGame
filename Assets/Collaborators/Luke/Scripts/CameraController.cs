@@ -47,6 +47,8 @@ public class CameraController : MonoBehaviour
     public float flashCooldown = 3.0f;
     float flashCharge = 0.0f;
 
+    public AudioSource flashAudio;
+
     public Image flashCooldownImage;
 
     public List<GameObject> ghosts;
@@ -100,8 +102,13 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
-        if(Input.GetKeyDown(KeyCode.F) && IsCameraReady() && this.gameObject.layer == 12)
+        if(Input.GetKeyDown(KeyCode.F) && IsCameraReady())
         {
+            UseFlash();
+
+            if (gameObject.layer != 12)
+                return;
+
             for(int i = 0; i < ghosts.Count; i++)
             {
                 ghosts[i].SendMessage("Flashed");
@@ -188,6 +195,7 @@ public class CameraController : MonoBehaviour
 
     public void UseFlash()
     {
+        flashAudio.Play();
         flashCharge = 0.0f;
         flashLight.SetActive(true);
         Invoke("TurnOffFlash", 0.1f);

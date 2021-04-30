@@ -222,7 +222,7 @@ MonoBehaviour:
   currentDetectionTime: 0
   alert: 0
   stunned: 0
-  stunTime: 5
+  stunTime: 4
   flashed: 0
   objCollider: {fileID: 453060760714799446}
   cam: {fileID: 0}
@@ -238,6 +238,7 @@ MonoBehaviour:
   stingers: {fileID: 0}
   stinger1: {fileID: 0}
   stinger2: {fileID: 0}
+  stung: 0
   animator: {fileID: 6190525768146001452}
 --- !u!195 &6190525768657615227
 NavMeshAgent:

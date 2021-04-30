@@ -109,7 +109,6 @@ public class GhostBehavior : MonoBehaviour
             {
                 if(hit.transform.tag == "Player")
                 {
-                    GameServices.cameraController.UseFlash();
                     animator.SetTrigger("Stun");
                     StartCoroutine(Stun());
                     stunned = true;
