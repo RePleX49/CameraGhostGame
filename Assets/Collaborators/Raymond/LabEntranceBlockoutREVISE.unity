@@ -2272,7 +2272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 73
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &158860530
 MeshCollider:
@@ -13974,7 +13974,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1a6c77fe119a82a49a5aded93d233ba9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20009136
+      value: 0.258
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a6c77fe119a82a49a5aded93d233ba9,
         type: 3}
@@ -14332,7 +14332,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 45247b66904f90840b56729a65b27609,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20009136
+      value: 0.219
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45247b66904f90840b56729a65b27609,
         type: 3}
@@ -17609,7 +17609,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 45247b66904f90840b56729a65b27609,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20009136
+      value: 0.224
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45247b66904f90840b56729a65b27609,
         type: 3}
@@ -22055,7 +22055,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1a6c77fe119a82a49a5aded93d233ba9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.20009136
+      value: 0.231
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a6c77fe119a82a49a5aded93d233ba9,
         type: 3}
@@ -25846,6 +25846,7 @@ MonoBehaviour:
   sanityRechargeRate: 4
   sanityDrainRateGhost: 0.8
   mainAudioMixer: {fileID: 24100000, guid: c76abf7f0e31c0549836a897bb14a3bf, type: 2}
+  inDialogue: 0
   gameOver: 0
 --- !u!4 &2017398665
 Transform:

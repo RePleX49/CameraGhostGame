@@ -25,4 +25,11 @@ public static class InputModeManager
         GameServices.moveController.EnableMovement();
         GameServices.cameraController.EnableControl();
     }
+
+    public static void SwitchInputModeGameIgnoreEnable()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        GameServices.cameraController.EnableControl();
+    }
 }

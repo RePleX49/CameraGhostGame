@@ -17,6 +17,7 @@ public class AnimationController : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             animator.SetTrigger("Play");
+            gameObject.SetActive(false);
         }
     }
 }

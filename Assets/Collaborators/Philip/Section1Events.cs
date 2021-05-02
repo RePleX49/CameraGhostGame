@@ -80,6 +80,7 @@ public class Section1Events : MonoBehaviour
         }
         eventTriggered[textNumber - 1] = true;
         talking = false;
+        GameServices.gameCycleManager.ResumeUpdate();
         playerMovement.EnableMovement();
     }
 

@@ -89,7 +89,10 @@ public class ResourceManager
         if (pillsCount < 1)
             return;
 
-        currentSanity = Mathf.Min(maxSanity, currentSanity + (maxSanity * 0.3f));
+        if (currentSanity >= maxSanity)
+            return;
+
+        currentSanity = Mathf.Min(maxSanity, currentSanity + (maxSanity * 0.2f));
         pillsCount--;
     }
 

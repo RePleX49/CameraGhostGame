@@ -92,11 +92,11 @@ public class MenuController : MonoBehaviour
         // Load section 1 or section 2 based on saved boolean
         if(saveData.clearedSection1 == true)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 

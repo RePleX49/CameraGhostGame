@@ -60,6 +60,14 @@ public class PauseGame : MonoBehaviour
             controlScreen.SetActive(false);
 
             Time.timeScale = 1;
+
+            //Check if in dialogue and don't run Switch input mode unlocking movement
+            if(GameServices.gameCycleManager.inDialogue)
+            {
+                InputModeManager.SwitchInputModeGameIgnoreEnable();
+                return;
+            }
+
             InputModeManager.SwitchInputModeGame();
         }
     }
