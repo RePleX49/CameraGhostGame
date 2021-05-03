@@ -7769,8 +7769,8 @@ MonoBehaviour:
   delayBeforeTransition: 3
   eventDialogue: {fileID: 0}
   changeMaterial: {fileID: 0}
---- !u!135 &302347282
-SphereCollider:
+--- !u!64 &302347282
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7778,10 +7778,11 @@ SphereCollider:
   m_GameObject: {fileID: 302347280}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 3.595865
-  m_Center: {x: -0.00016975403, y: 3.595865, z: 0.020166636}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5076798556035486163, guid: 708c2a76ce1c8874a9d7f50836164220, type: 3}
 --- !u!136 &302347283
 CapsuleCollider:
   m_ObjectHideFlags: 0
