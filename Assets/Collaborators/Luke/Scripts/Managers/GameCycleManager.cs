@@ -56,7 +56,7 @@ public class GameCycleManager : MonoBehaviour
 
     public void BeingHunted2()
     {
-        sanityDrainRateGhost = 8f;
+        sanityDrainRateGhost = 6.5f;
     }
 
     public void ResetDrainRate()

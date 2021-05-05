@@ -54,6 +54,8 @@ public class CameraController : MonoBehaviour
     public List<GameObject> ghosts;
     public GameObject closestGhost;
 
+    public Animator bloodAnimator;
+
     private void Awake()
     {
         GameServices.cameraController = this;
@@ -134,6 +136,11 @@ public class CameraController : MonoBehaviour
             }
         }
 
+        if (Player.gameObject.layer != alternateLayer)
+        {
+            return;
+        }
+
         if(ghosts.Count > 0)
         {
             closestGhost = ghosts[0];
@@ -147,6 +154,8 @@ public class CameraController : MonoBehaviour
             if (Vector3.Distance(closestGhost.transform.position, transform.position) < 10f && !closestGhost.GetComponent<GhostBehavior>().stunned)
             {
                 GameServices.gameCycleManager.BeingHunted2();
+
+                    bloodAnimator.SetTrigger("Damage");
             }
             else if (Vector3.Distance(closestGhost.transform.position, transform.position) < 20f && !closestGhost.GetComponent<GhostBehavior>().stunned)
             {
@@ -155,6 +164,7 @@ public class CameraController : MonoBehaviour
             else
             {
                 GameServices.gameCycleManager.ResetDrainRate();
+                bloodAnimator.SetTrigger("Stop");
             }
         }
     }

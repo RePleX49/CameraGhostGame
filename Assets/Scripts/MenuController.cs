@@ -16,6 +16,7 @@ public class MenuController : MonoBehaviour
     public GameObject soundMenu;
     public Button continueButton;
     public SettingsMenuScript settingsMenu;
+    public Text continueText;
 
     PlayerSaveData saveData;
 
@@ -42,6 +43,8 @@ public class MenuController : MonoBehaviour
             if(saveData.isCompletedSave)
             {
                 continueButton.interactable = false;
+                Color newColor = new Color(continueText.color.r, continueText.color.g, continueText.color.b, 0.3f);
+                continueText.color = newColor;
             }          
         }
             
@@ -115,7 +118,15 @@ public class MenuController : MonoBehaviour
 
     public void OpenConfirmNewGame()
     {
-        confirmNewGame.SetActive(true);
+        saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
+        if (saveData.isCompletedSave)
+        {
+            NewGame();
+        }
+        else
+        {
+            confirmNewGame.SetActive(true);
+        }     
     }
 
     public void CloseConfirmNewGame()
