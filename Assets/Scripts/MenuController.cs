@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -11,6 +9,7 @@ public class MenuController : MonoBehaviour
     private Boolean newGame;
     public GameObject mainMenu;
     public GameObject startGame;
+    public GameObject letterText;
     public GameObject confirmNewGame;
     public Animator cameraAC;
     public GameObject soundMenu;
@@ -53,7 +52,7 @@ public class MenuController : MonoBehaviour
         if(startGame)
         {
             startGame.SetActive(false);
-        }     
+        }
     }
 
     void Update()
@@ -80,7 +79,13 @@ public class MenuController : MonoBehaviour
         mainMenu.SetActive(false);
         CloseConfirmNewGame();
         cameraAC.SetBool("newGameAnim", true);
-        Invoke("SetStartGameActive", 5.0f);
+        Invoke("ShowLetterText", 3.5f);
+        Invoke("SetStartGameActive", 6.5f);
+    }
+
+    void ShowLetterText()
+    {
+        letterText.SetActive(true);
     }
 
     void SetStartGameActive()

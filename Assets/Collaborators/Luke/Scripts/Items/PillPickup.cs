@@ -6,6 +6,8 @@ public class PillPickup : MonoBehaviour
 {
     AudioSource audioSource;
 
+    bool collected = false;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -13,11 +15,15 @@ public class PillPickup : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (collected)
+            return;
+
         if(other.CompareTag("Player"))
         {
+            collected = true;
             audioSource.Play();
             GameServices.playerStats.AddPills();
-            Destroy(gameObject, 0.65f);
+            Destroy(gameObject, 0.6f);
         }
     }
 }

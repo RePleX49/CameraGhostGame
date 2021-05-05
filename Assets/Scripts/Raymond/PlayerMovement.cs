@@ -80,12 +80,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = transform.right * x + transform.forward * z;
         targetVelocity.Normalize();
 
-        if (targetVelocity.magnitude > 0 && !isWalking)
+        if (targetVelocity.magnitude > 0 && !isWalking && isGrounded)
         {
             isWalking = true;
             InvokeRepeating("PlaySteps", 0.0f, delayBetweenSteps);
         }
-        else if (targetVelocity.magnitude == 0)
+        else if (targetVelocity.magnitude == 0 || !isGrounded)
         {
             CancelInvoke("PlaySteps");
             isWalking = false;
