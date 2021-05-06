@@ -2,3 +2,4 @@
 2“Strange... I only keep that door locked if we leak dangerous substances on that floor!” 
 1“Haha, very funny, Cecil. How can I open this door?”
 2“You’ll have to turn on the power generator.”
+2"I just opened the door on the right. You should be able to find it somewhere there."

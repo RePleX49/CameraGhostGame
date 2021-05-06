@@ -1,2 +1,2 @@
-0POWER CELL INSERTED. 
-0CREATING DIMENSIONAL OPENING.
+0"Power cell inserted." 
+0"Resuming dimensional opening sequence."

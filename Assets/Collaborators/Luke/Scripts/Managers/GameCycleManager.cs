@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameCycleManager : MonoBehaviour
 {
     public float sanityRechargeRate = 0.2f;
     public float sanityDrainRateGhost = 0.4f;
 
-    bool inDialogue;
+    public AudioMixer mainAudioMixer;
+
+    [HideInInspector]
+    public bool inDialogue;
+    public bool gameOver;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +26,11 @@ public class GameCycleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float volumePercentage = GameServices.playerStats.GetSanityPercentage();
+        volumePercentage = 1 - volumePercentage;
+        float mixerVolume = (80.0f * volumePercentage) - 80.0f;
+        mainAudioMixer.SetFloat("sanityBGMVolume", mixerVolume);
+
         if(inDialogue)
         {
             return;
@@ -41,16 +51,16 @@ public class GameCycleManager : MonoBehaviour
 
     public void BeingHunted1()
     {
-        sanityDrainRateGhost = 2.4f;
+        sanityDrainRateGhost = 1.75f;
     }
 
     public void BeingHunted2()
     {
-        sanityDrainRateGhost = 6.0f;
+        sanityDrainRateGhost = 6.5f;
     }
 
     public void ResetDrainRate()
     {
-        sanityDrainRateGhost = 0.4f;
+        sanityDrainRateGhost = 0.9f;
     }
 }

@@ -1,5 +1,5 @@
 1"Siren Labs..."
 1"Cecil's letter sounded urgent. I should start looking for him."
-0 CONTROLS
-0 USE WASD TO MOVE AROUND
-0 PRESS THE SPACEBAR TO JUMP
+0 Controls
+0 Use WASD to move around
+0 Press the SPACEBAR to jump

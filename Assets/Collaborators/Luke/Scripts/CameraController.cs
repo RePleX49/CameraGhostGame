@@ -47,7 +47,14 @@ public class CameraController : MonoBehaviour
     public float flashCooldown = 3.0f;
     float flashCharge = 0.0f;
 
+    public AudioSource flashAudio;
+
     public Image flashCooldownImage;
+
+    public List<GameObject> ghosts;
+    public GameObject closestGhost;
+
+    public Animator bloodAnimator;
 
     private void Awake()
     {
@@ -75,17 +82,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            GameServices.playerStats.AddPills();
-        }
-
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            GameServices.playerStats.SavePlayerData();
-            Debug.Log("Saved Data");
-        }
-
         if (isControlDisabled)
             return;
 
@@ -108,6 +104,19 @@ public class CameraController : MonoBehaviour
         if (isDisabled)
             return;
 
+        if(Input.GetKeyDown(KeyCode.F) && IsCameraReady())
+        {
+            UseFlash();
+
+            if (gameObject.layer != 12)
+                return;
+
+            for(int i = 0; i < ghosts.Count; i++)
+            {
+                ghosts[i].SendMessage("Flashed");
+            }
+        }
+
         /*
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -115,7 +124,7 @@ public class CameraController : MonoBehaviour
         }
         */
 
-        if(Input.GetKeyDown(KeyCode.Q) && hasCamera)
+        if (Input.GetKeyDown(KeyCode.Q) && hasCamera)
         {
             if(isEquipped)
             {
@@ -124,6 +133,38 @@ public class CameraController : MonoBehaviour
             else
             {
                 EquipCamera();
+            }
+        }
+
+        if (Player.gameObject.layer != alternateLayer)
+        {
+            return;
+        }
+
+        if(ghosts.Count > 0)
+        {
+            closestGhost = ghosts[0];
+            for(int i = 1; i < ghosts.Count; i++)
+            {
+                if(Vector3.Distance(transform.position, ghosts[i].transform.position) < Vector3.Distance(transform.position, closestGhost.transform.position))
+                {
+                    closestGhost = ghosts[i];
+                }
+            }
+            if (Vector3.Distance(closestGhost.transform.position, transform.position) < 10f && !closestGhost.GetComponent<GhostBehavior>().stunned)
+            {
+                GameServices.gameCycleManager.BeingHunted2();
+
+                    bloodAnimator.SetTrigger("Damage");
+            }
+            else if (Vector3.Distance(closestGhost.transform.position, transform.position) < 20f && !closestGhost.GetComponent<GhostBehavior>().stunned)
+            {
+                GameServices.gameCycleManager.BeingHunted1();
+            }
+            else
+            {
+                GameServices.gameCycleManager.ResetDrainRate();
+                bloodAnimator.SetTrigger("Stop");
             }
         }
     }
@@ -164,6 +205,7 @@ public class CameraController : MonoBehaviour
 
     public void UseFlash()
     {
+        flashAudio.Play();
         flashCharge = 0.0f;
         flashLight.SetActive(true);
         Invoke("TurnOffFlash", 0.1f);

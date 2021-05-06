@@ -73,6 +73,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
+  - 3313775239df6eb448cb9fa8cc3739ce
   - 4cbc5fcb0277ae04e8fea64a634e70f5
   importAnimation: 1
   humanDescription:
@@ -86,7 +87,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.39999998
+    globalScale: 40
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

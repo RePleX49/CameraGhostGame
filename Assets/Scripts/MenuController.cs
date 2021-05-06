@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -11,10 +9,13 @@ public class MenuController : MonoBehaviour
     private Boolean newGame;
     public GameObject mainMenu;
     public GameObject startGame;
+    public GameObject letterText;
     public GameObject confirmNewGame;
     public Animator cameraAC;
     public GameObject soundMenu;
     public Button continueButton;
+    public SettingsMenuScript settingsMenu;
+    public Text continueText;
 
     PlayerSaveData saveData;
 
@@ -35,16 +36,23 @@ public class MenuController : MonoBehaviour
 
         if (mainMenu)
         {
+            InputModeManager.SwitchInputModeMainMenu();
             mainMenu.SetActive(true);
 
-            if(saveData.isEmptySave)
+            if(saveData.isCompletedSave)
             {
                 continueButton.interactable = false;
+                Color newColor = new Color(continueText.color.r, continueText.color.g, continueText.color.b, 0.3f);
+                continueText.color = newColor;
             }          
         }
             
         newGame = false;
-        startGame.SetActive(false);
+
+        if(startGame)
+        {
+            startGame.SetActive(false);
+        }
     }
 
     void Update()
@@ -53,7 +61,7 @@ public class MenuController : MonoBehaviour
         {
             if (newGame)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
     }
@@ -63,13 +71,21 @@ public class MenuController : MonoBehaviour
     //start a new game
     public void NewGame()
     {
+        // Reset save data and set local data reference to new file
         PlayerSaveData.DeletePlayerSave();
-        saveData.isEmptySave = false;
+        saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
+        saveData.isCompletedSave = false;
         PlayerSaveData.WriteString(PlayerSaveData.saveFileName, saveData.GetString());
         mainMenu.SetActive(false);
         CloseConfirmNewGame();
         cameraAC.SetBool("newGameAnim", true);
-        Invoke("SetStartGameActive", 1.0f);
+        Invoke("ShowLetterText", 3.5f);
+        Invoke("SetStartGameActive", 6.5f);
+    }
+
+    void ShowLetterText()
+    {
+        letterText.SetActive(true);
     }
 
     void SetStartGameActive()
@@ -82,15 +98,13 @@ public class MenuController : MonoBehaviour
     public void Retry()
     {
         // Load section 1 or section 2 based on saved boolean
-        
-
         if(saveData.clearedSection1 == true)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -102,13 +116,22 @@ public class MenuController : MonoBehaviour
     
     public void CloseOptions()
     {
+        settingsMenu.SaveVolumePreference();
         mainMenu.SetActive(true);
         soundMenu.SetActive(false);
     }
 
     public void OpenConfirmNewGame()
     {
-        confirmNewGame.SetActive(true);
+        saveData.SetFromString(PlayerSaveData.ReadTextFile("", "playerData.txt"));
+        if (saveData.isCompletedSave)
+        {
+            NewGame();
+        }
+        else
+        {
+            confirmNewGame.SetActive(true);
+        }     
     }
 
     public void CloseConfirmNewGame()

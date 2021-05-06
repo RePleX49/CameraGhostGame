@@ -58,8 +58,13 @@ public class CreditsScreen : MonoBehaviour
             }
         }
         //once faded to black, exit to main menu
-        else if (onCreditsScreen==false && fadeStart) 
+        else if (onCreditsScreen==false && fadeStart)
         {
+            PlayerSaveData saveData = PlayerSaveData.GetPlayerSave();
+            saveData.isCompletedSave = true;
+
+            PlayerSaveData.WriteString("playerData.txt", saveData.GetString());
+
             if (!(fadeAC.GetCurrentAnimatorStateInfo(0).IsName("Fadein")))
             {
                 SceneManager.LoadScene("MainMenu");

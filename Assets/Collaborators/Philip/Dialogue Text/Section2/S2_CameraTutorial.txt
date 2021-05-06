@@ -1,9 +1,10 @@
 2“Ah, so that’s where I left my camera!” 
 2“That camera allows you to peak into the alternate dimension without actually being there.” 
 0PRESS ‘Q’ TO PULL UP THE CAMERA
-2“Now that you have that, maybe you won’t have to run from ‘them’ anymore.” 
+1"Holy crap, what the hell am I looking at??"
+2“Oh now that you have that, maybe you won’t have to run from ‘them’ anymore.” 
 2“You can even flash them with your camera to stun their movement for a few seconds.” 
-1“Who even is this ‘them’ you’re talking about?” 
+1“Can you explain who this 'them' is??” 
 1“Sorry to shock you, but I’m starting to think they aren’t really your assistants.” 
 2“For your own sake, I’ll let you continue believing they’re ‘assistants.’”
 0PRESS ‘F’ WHEN THE CAMERA IS UP AND YOU ARE IN THE ALTERNATE DIMENSION TO STUN GHOSTS

@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 453060760714799447}
   - component: {fileID: 6190525768657615227}
   - component: {fileID: 453060760714799451}
+  - component: {fileID: 7745149232026745913}
   m_Layer: 12
   m_Name: GhostCreaturePrefab
   m_TagString: Untagged
@@ -221,7 +222,8 @@ MonoBehaviour:
   currentDetectionTime: 0
   alert: 0
   stunned: 0
-  stunTime: 5
+  stunTime: 4
+  flashed: 0
   objCollider: {fileID: 453060760714799446}
   cam: {fileID: 0}
   playingSound1: 0
@@ -232,7 +234,12 @@ MonoBehaviour:
   breath2: {fileID: 8300000, guid: c1b16b51b4db34cffa597b12bf092595, type: 3}
   breath3: {fileID: 8300000, guid: 4e8adbc74e655402ba6590ebab2df7c1, type: 3}
   alertNoise: {fileID: 8300000, guid: 9b98ff0364e20a8419cc37aa4970d432, type: 3}
-  whisper: {fileID: 8300000, guid: 53eb5697837cf465d9f2b2003c514f2d, type: 3}
+  whisper: {fileID: 8300000, guid: 82168910209791a4a99a7fb282609c6b, type: 3}
+  stingers: {fileID: 0}
+  stinger1: {fileID: 0}
+  stinger2: {fileID: 0}
+  stung: 0
+  animator: {fileID: 6190525768146001452}
 --- !u!195 &6190525768657615227
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -336,6 +343,102 @@ AudioSource:
     - serializedVersion: 3
       time: 0.14149475
       value: 0.06021118
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &7745149232026745913
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453060760714799448}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1140,7 +1243,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3e0dbe2530abd5944a24a57787f2dbda, type: 2}
-  - {fileID: 2100000, guid: 5605eb87e3057c54090c25afd5781022, type: 2}
+  - {fileID: 2100000, guid: f8ea8c93444ec3d43aef6702f75f159c, type: 2}
   - {fileID: 2100000, guid: fec1856205112b34d89842b8d569e702, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

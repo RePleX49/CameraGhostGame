@@ -2402,6 +2402,11 @@ MonoBehaviour:
   optionScreen: {fileID: 8010290570251027244}
   controlScreen: {fileID: 8010290569887452367}
   soundScreen: {fileID: 8010290570233855042}
+  pausedAudioSnapshot: {fileID: 2306993661377078802, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
+  unpausedAudioSnapshot: {fileID: 24500006, guid: c76abf7f0e31c0549836a897bb14a3bf,
+    type: 2}
+  audioMixer: {fileID: 24100000, guid: c76abf7f0e31c0549836a897bb14a3bf, type: 2}
 --- !u!1 &8010290570826794218
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ public class TextBoxManager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameServices.gameCycleManager.PauseUpdate();
         eventManager = GameObject.Find("EventManager");
         textNumber = int.Parse(gameObject.name.Substring(gameObject.name.Length - 1));
         textbox = GameObject.Find("Player(Clone)/UI_Canvas/Image");
@@ -80,7 +81,8 @@ public class TextBoxManager : MonoBehaviour
             }
             else
             {
-                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().enabled = true;
+                GameServices.gameCycleManager.ResumeUpdate();
+                GameServices.cameraController.gameObject.GetComponent<PlayerMovement>().EnableMovement();
             }
             
             personTalkingBox.gameObject.SetActive(false);

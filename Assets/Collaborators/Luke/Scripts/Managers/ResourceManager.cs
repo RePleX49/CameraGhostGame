@@ -12,6 +12,7 @@ public class ResourceManager
     //float sanityDrainRateGhost = 0.4f;
 
     int pillsCount = 0;
+    int maxPillsCount = 3;
     public bool clearedSection1 = false;
 
     private static PlayerSaveData playerData;
@@ -38,15 +39,19 @@ public class ResourceManager
         clearedSection1 = playerData.clearedSection1;
     }
 
-    
-
     public void Update(float rechargeRate, float ghostRate)
     {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            currentSanity = 0.0f;
+        }
+
         if (currentSanity <= 0.0f)
         {
             // add fade out
-            InputModeManager.SwitchInputModeMenu();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            //InputModeManager.SwitchInputModeMenu();
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
+            GameServices.playerUI.StartCoroutine(GameServices.playerUI.ShowGameOver());
             return;
         }
 
@@ -79,14 +84,31 @@ public class ResourceManager
         return currentSanity / maxSanity;
     }
 
+    public void ConsumePill()
+    {
+        if (pillsCount < 1)
+            return;
+
+        if (currentSanity >= maxSanity)
+            return;
+
+        currentSanity = Mathf.Min(maxSanity, currentSanity + (maxSanity * 0.2f));
+        pillsCount--;
+    }
+
     public void AddPills()
     {
-        pillsCount++;
+        pillsCount = Mathf.Min(maxPillsCount, pillsCount + 1);
     }
 
     public void SubtractPills()
     {
         pillsCount--;
+    }
+
+    public float GetPillCountRatio()
+    {
+        return (float)pillsCount / (float)maxPillsCount;
     }
 
     public void SavePlayerData()
