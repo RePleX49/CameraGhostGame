@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb0b62f5-4714-4975-849d-91fd114e15bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CameraGhostGame/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CameraGhostGame/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CameraGhostGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CameraGhostGame/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/MenuController.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="960">
-              <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="46" />
+              <caret line="70" column="46" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="46" />
               <folding>
                 <marker date="1619136689445" expanded="false" signature="6:166" ph="..." />
                 <marker date="1619136689445" expanded="true" signature="211:2840" ph="{...}" />
@@ -188,12 +189,12 @@
       <option name="presentableId" value="Default" />
       <updated>1618509254882</updated>
       <workItem from="1618509256693" duration="8207000" />
-      <workItem from="1619740113099" duration="6222000" />
+      <workItem from="1619740113099" duration="6631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14429000" />
+    <option name="totallyTimeSpent" value="14838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -206,7 +207,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18489583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -305,7 +305,7 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/MenuController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
-          <caret line="70" column="46" lean-forward="true" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="46" />
+          <caret line="70" column="46" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="46" />
           <folding>
             <marker date="1619136689445" expanded="false" signature="6:166" ph="..." />
             <marker date="1619136689445" expanded="true" signature="211:2840" ph="{...}" />
