@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Special Thanks:'
+  m_Text: Music By
 --- !u!222 &32593083
 CanvasRenderer:
   m_ObjectHideFlags: 0
