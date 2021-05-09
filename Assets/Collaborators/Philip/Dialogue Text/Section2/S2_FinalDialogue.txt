@@ -1,12 +1,5 @@
 1“Looks like activating the generator did the trick.”
-1“So, Cecil, when are you gonna tell me what’s going here?”
-2“I have everything under control”
-1“Do you?”
-1“So those things, do you know what they are??”
-2“I’ll explain it all to you later.”
-1“Why not now?!”
-2“There’s no need for you to get all wound up”
-2“You just need to make it a little bit further to reach me.”
-1“*sigh* There’s no other way for me to go, I guess.”
-1“But you better explain everything when I reach you.”
+2"Excellent!"
+2"Just a little further and you'll reach me."
+1“You better explain everything when I get there.”
 2“I will, I promise. See you soon, friend.”

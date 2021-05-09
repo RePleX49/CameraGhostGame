@@ -1,4 +1,4 @@
-2“This should be useful for when you try turning on the power generator.” 
+2“This will be useful for turning on the power generator.” 
 1“Care to explain what’s inside of this thing?”
-2“Do you want to listen to a 6 hour science lecture or do you want to get out of this laboratory?” 
-1"Touché."
+2“How about we focus on getting the vault door open.” 
+1"Fine."

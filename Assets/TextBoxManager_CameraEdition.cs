@@ -103,10 +103,10 @@ public class TextBoxManager_CameraEdition : MonoBehaviour
         {
             cancelTyping = true;
         }
-        else if (((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && currentLine != 2) || (currentLine == 2 && Input.GetKeyDown(KeyCode.Q))
+        else if (((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && currentLine != 1) || (currentLine == 1 && Input.GetKeyDown(KeyCode.Q))
             && cancelTyping)
         {
-            if(currentLine == 2 && cancelTyping)
+            if(currentLine == 1 && cancelTyping)
             {
                 player.GetComponent<CameraController>().hasCamera = true;
                 player.GetComponent<CameraController>().EquipCamera();

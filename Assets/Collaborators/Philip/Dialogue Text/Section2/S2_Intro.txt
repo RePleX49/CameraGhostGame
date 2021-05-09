@@ -1,8 +1,5 @@
 2“All you gotta do now is open that vault door in front of you and head on through.” 
-1“Gee, Cecil. I know we’re friends and all but don’t ya think ordering me around on a walkie-talkie is a bit cold?”
-2“What--you wanted me to hire a receptionist for you?”
-1“Well, it doesn’t have to be a receptionist, but having one of your assistants welcome me in would have been nice.” 
-1“I guess I just expected to meet somebody by now.” 
-2“Maybe you will meet somebody on this floor.” 
-2“Although I’d suggest running away if you make contact with one of them.” 
-1“By them I hope you’re talking about your assistants.”
+2"Now, it's possible you'll meet someone on this floor."
+2"If you do, I'd suggest running away from them."
+1"Why is that?"
+2"See for yourself. Go ahead and grab that camera on the desk."

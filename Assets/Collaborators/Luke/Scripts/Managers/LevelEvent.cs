@@ -59,7 +59,7 @@ public class LevelEvent : MonoBehaviour
                 break;
             case LevelEventType.LevelTransition:
                 // we are in Section 1 scene
-                if(SceneManager.GetActiveScene().buildIndex == 0)
+                if(SceneManager.GetActiveScene().buildIndex == 1)
                 {
                     GameServices.playerStats.clearedSection1 = true;
                     GameServices.playerStats.SavePlayerData();
